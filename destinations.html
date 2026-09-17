@@ -1,0 +1,1093 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Explore Sri Lanka's finest destinations with Way2Wonders LK - Ancient historical heritage, pristine beaches, misty hill country, and untamed wildlife safaris.">
+    <meta name="theme-color" content="#0F172A">
+    
+    <title>Destinations | Way2Wonders LK - Sri Lanka Travel & Tours</title>
+
+    <!-- Google Fonts: Serif for luxury headings, Sans-Serif for body -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- FontAwesome Icons (No emojis) -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            50: '#f0f7ff',
+                            100: '#e0effe',
+                            500: '#0284c7',
+                            600: '#0369a1',
+                            800: '#075985',
+                            900: '#0f172a',
+                            navy: '#0b192c',
+                            accent: '#1e40af'
+                        }
+                    },
+                    fontFamily: {
+                        serif: ['"Playfair Display"', 'Georgia', 'serif'],
+                        sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            color: #1e293b;
+            background-color: #f8fafc;
+        }
+
+        .font-serif-title {
+            font-family: 'Playfair Display', Georgia, serif;
+        }
+
+        /* Glassmorphism header on scroll */
+        .nav-scrolled {
+            background-color: rgba(15, 23, 42, 0.96) !important;
+            backdrop-filter: blur(12px);
+            box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.2);
+            padding-top: 0.75rem !important;
+            padding-bottom: 0.75rem !important;
+        }
+
+        /* Hide default scrollbars for clean carousels while maintaining smooth native touch scroll */
+        @media (min-width: 768px) {
+            .no-scrollbar::-webkit-scrollbar {
+                display: none;
+            }
+            .no-scrollbar {
+                -ms-overflow-style: none;
+                scrollbar-width: none;
+            }
+
+            /* Carousel Card Elevation & Smoothness */
+            .carousel-track {
+                scroll-snap-type: x mandatory;
+                scroll-behavior: smooth;
+            }
+            .carousel-item {
+                scroll-snap-align: start;
+            }
+        }
+
+        /* Custom subtle badge animation */
+        .category-tab.active {
+            background-color: #0284c7;
+            color: #ffffff;
+            border-color: #0284c7;
+            box-shadow: 0 4px 14px rgba(2, 132, 199, 0.35);
+        }
+    </style>
+</head>
+<body class="antialiased bg-slate-50 text-slate-800 flex flex-col min-h-screen">
+
+    <header id="mainNav" class="fixed top-0 left-0 right-0 z-50 transition-all duration-300 py-5 bg-gradient-to-b from-slate-900/80 to-transparent">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between">
+                
+                <!-- Logo Left -->
+                <a href="index.html" class="flex items-center gap-3 group focus:outline-none focus:ring-2 focus:ring-sky-400 rounded-lg p-1" aria-label="Way2Wonders LK Home">
+                    <div class="w-20 h-20 bg-white/10 backdrop-blur-md rounded-full p-1.5 border border-white/20 shadow-md transition-transform duration-300 group-hover:scale-105 flex items-center justify-center">
+                        <!-- Inline SVG representation of the Way2Wonders LK Logo -->
+                        <img src="Lg.png">
+                    </div>
+                    <div class="flex flex-col">
+                        <span class="text-white font-serif font-bold text-xl tracking-wider leading-tight">Way2Wonders<span class="text-sky-400">LK</span></span>
+                        <span class="text-xs text-slate-300 font-light tracking-widest uppercase">Travel & Tourism</span>
+                    </div>
+                </a>
+
+                <nav class="hidden md:flex items-center space-x-8" aria-label="Main Navigation">
+                    <a href="index.html" class="text-white/90 hover:text-sky-300 font-medium text-sm tracking-wide transition-colors duration-200 pb-1">Home</a>
+                    <a href="about.html" class="text-white/90 hover:text-sky-300 font-medium text-sm tracking-wide transition-colors duration-200 pb-1">About</a>
+                    <a href="contact.html" class="text-white/90 hover:text-sky-300 font-medium text-sm tracking-wide transition-colors duration-200 pb-1">Contact</a>
+                </nav>
+
+                <!-- Mobile Menu Toggle Button -->
+                <div class="md:hidden flex items-center">
+                    <button id="mobileMenuBtn" type="button" class="text-white hover:text-sky-400 p-2 rounded-lg focus:outline-none focus:ring-2 focus:ring-sky-400" aria-expanded="false" aria-label="Toggle Navigation Menu">
+                        <i class="fa-solid fa-bars text-2xl"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <div id="mobileMenu" class="hidden md:hidden bg-slate-900/95 backdrop-blur-xl border-b border-slate-800 transition-all duration-300">
+            <div class="px-4 pt-3 pb-6 space-y-2">
+                <a href="index.html" class="block px-3 py-2 rounded-md text-base font-medium text-white hover:text-sky-300 hover:bg-slate-800/40">Home</a>
+                <a href="about.html" class="block px-3 py-2 rounded-md text-base font-medium text-white hover:text-sky-300 hover:bg-slate-800/40">About</a>
+                <a href="destinations.html" class="block px-3 py-2 rounded-md text-base font-medium text-sky-400 bg-slate-800/60" aria-current="page">Destinations</a>
+                <a href="contact.html" class="block px-3 py-2 rounded-md text-base font-medium text-white hover:text-sky-300 hover:bg-slate-800/40">Contact</a>
+            </div>
+        </div>
+    </header>
+
+    <section class="relative bg-slate-900 text-white pt-32 pb-20 md:pt-40 md:pb-28 overflow-hidden">
+        <!-- Single Hero Background Image -->
+        <div class="absolute inset-0 z-0 opacity-45">
+            <img src="destinations.png" 
+                 alt="Sri Lanka Destinations Overview" 
+                 class="w-full h-full object-cover object-center"
+                 onerror="this.onerror=null; this.src='https://placehold.co/1920x800/0f172a/ffffff?text=Sri+Lanka+Wonders';" />
+            <div class="absolute inset-0 bg-gradient-to-b from-slate-900/90 via-slate-900/75 to-slate-900"></div>
+        </div>
+
+        <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <!-- Breadcrumbs -->
+            <nav class="flex justify-center items-center gap-2 text-xs uppercase tracking-widest text-slate-400 mb-4">
+                <a href="index.html" class="hover:text-sky-400 transition-colors">Home</a>
+                <i class="fa-solid fa-chevron-right text-[10px] text-slate-600"></i>
+                <span class="text-sky-400 font-semibold">Destinations</span>
+            </nav>
+
+            <span class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-sky-500/20 border border-sky-400/30 text-sky-300 text-xs font-semibold tracking-wider uppercase mb-5">
+                <i class="fa-solid fa-compass"></i> Islandwide Wonders
+            </span>
+
+            <h1 class="font-serif-title text-3xl sm:text-5xl md:text-6xl font-bold tracking-tight mb-4">
+                Explore Sri Lanka’s Destinations
+            </h1>
+            
+            <p class="font-serif-title italic text-lg sm:text-2xl text-sky-200/90 max-w-3xl mx-auto font-normal mb-8">
+                "From ancient royal kingdoms and pristine golden coastlines to misty tea valleys and wild elephant sanctuaries."
+            </p>
+
+            <!-- Quick Filter Jumping Pills -->
+            <div class="flex flex-wrap justify-center items-center gap-2.5 max-w-4xl mx-auto text-xs sm:text-sm font-medium">
+                <button onclick="scrollToCategory('cultural')" class="px-4 py-2 rounded-full bg-white/10 hover:bg-sky-600 border border-white/20 backdrop-blur-md text-white transition-all">
+                    <i class="fa-solid fa-gopuram text-sky-300 mr-1.5"></i> Historical & Heritage
+                </button>
+                <button onclick="scrollToCategory('coastal')" class="px-4 py-2 rounded-full bg-white/10 hover:bg-sky-600 border border-white/20 backdrop-blur-md text-white transition-all">
+                    <i class="fa-solid fa-umbrella-beach text-sky-300 mr-1.5"></i> Coastal & Beaches
+                </button>
+                <button onclick="scrollToCategory('highlands')" class="px-4 py-2 rounded-full bg-white/10 hover:bg-sky-600 border border-white/20 backdrop-blur-md text-white transition-all">
+                    <i class="fa-solid fa-mountain text-sky-300 mr-1.5"></i> Hill Country
+                </button>
+                <button onclick="scrollToCategory('wildlife')" class="px-4 py-2 rounded-full bg-white/10 hover:bg-sky-600 border border-white/20 backdrop-blur-md text-white transition-all">
+                    <i class="fa-solid fa-paw text-sky-300 mr-1.5"></i> Wildlife & Nature
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <main class="py-16 md:py-24 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-20">
+
+        <!-- CATEGORY 1: Historical & Cultural Heritage Carousel Card -->
+        <section id="cultural" class="scroll-mt-28">
+            <div class="bg-white rounded-3xl border border-slate-200/90 shadow-xl overflow-hidden p-6 sm:p-8 md:p-10 relative">
+                
+                <!-- Category Header -->
+                <div class="flex flex-col md:flex-row md:items-end justify-between mb-8 pb-6 border-b border-slate-100 gap-4">
+                    <div>
+                        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-md bg-amber-50 border border-amber-200 text-amber-800 text-xs font-bold uppercase tracking-wider mb-2">
+                            <i class="fa-solid fa-landmark"></i> Category 01
+                        </div>
+                        <h2 class="font-serif-title text-2xl sm:text-4xl font-bold text-slate-900">
+                            Historical & Cultural Heritage
+                        </h2>
+                        <p class="text-slate-500 text-xs sm:text-sm mt-1">
+                            Step into thousands of years of royal history, UNESCO ruins, and sacred epicentres.
+                        </p>
+                    </div>
+
+                    <!-- Carousel Controls & Indicator (Hidden on Mobile) -->
+                    <div class="hidden md:flex items-center gap-3">
+                        <button onclick="scrollCarousel('track-cultural', -1)" class="w-11 h-11 rounded-full bg-slate-100 hover:bg-sky-600 text-slate-700 hover:text-white flex items-center justify-center transition-all duration-300 shadow-sm" aria-label="Previous Destination">
+                            <i class="fa-solid fa-chevron-left"></i>
+                        </button>
+                        <button onclick="scrollCarousel('track-cultural', 1)" class="w-11 h-11 rounded-full bg-slate-100 hover:bg-sky-600 text-slate-700 hover:text-white flex items-center justify-center transition-all duration-300 shadow-sm" aria-label="Next Destination">
+                            <i class="fa-solid fa-chevron-right"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <div id="track-cultural" class="flex flex-col md:flex-row gap-6 md:overflow-x-auto no-scrollbar pb-4 pt-2 carousel-track">
+                    
+                    <!-- Slide 1: Anuradhapura -->
+                    <div class="carousel-item w-full md:w-[350px] shrink-0 bg-slate-50 rounded-2xl border border-slate-200/80 p-6 flex flex-col justify-between hover:shadow-lg hover:border-sky-300 transition-all duration-300">
+                        <div>
+                            <div class="flex items-center justify-between mb-4">
+                                <div class="w-12 h-12 rounded-xl bg-amber-100 text-amber-700 flex items-center justify-center text-xl">
+                                    <i class="fa-solid fa-gopuram"></i>
+                                </div>
+                                <span class="text-[11px] font-bold uppercase tracking-wider bg-slate-200 text-slate-700 px-2.5 py-1 rounded-full">Ancient Kingdom</span>
+                            </div>
+                            <h3 class="font-serif-title text-xl font-bold text-slate-900 mb-2">Anuradhapura</h3>
+                            <p class="text-xs text-sky-700 font-medium mb-3">UNESCO Sacred City • Stupas & Monasteries</p>
+                            <p class="text-slate-600 text-xs sm:text-sm leading-relaxed mb-6">
+                                First ancient capital of Sri Lanka, home to colossal white stupas, sacred Jaya Sri Maha Bodhi tree, and intricate stone carvings.
+                            </p>
+                        </div>
+                        <button onclick="openModal('Anuradhapura', 'Historical & Cultural Heritage', 'An ancient capital founded in the 4th century BC. Key attractions include Ruwanwelisaya, Jetavanaramaya, Jaya Sri Maha Bodhi, and Kuttam Pokuna (Twin Ponds).', 'Monuments, Sacred Temples, Cycling through Ruins')" class="w-full py-2.5 px-4 bg-white border border-slate-300 hover:bg-sky-600 hover:text-white hover:border-sky-600 text-slate-800 text-xs font-semibold rounded-xl transition-all flex items-center justify-center gap-2">
+                            <span>Explore Highlights</span> <i class="fa-solid fa-arrow-right text-[10px]"></i>
+                        </button>
+                    </div>
+
+                    <!-- Slide 2: Polonnaruwa -->
+                    <div class="carousel-item w-full md:w-[350px] shrink-0 bg-slate-50 rounded-2xl border border-slate-200/80 p-6 flex flex-col justify-between hover:shadow-lg hover:border-sky-300 transition-all duration-300">
+                        <div>
+                            <div class="flex items-center justify-between mb-4">
+                                <div class="w-12 h-12 rounded-xl bg-amber-100 text-amber-700 flex items-center justify-center text-xl">
+                                    <i class="fa-solid fa-chess-rook"></i>
+                                </div>
+                                <span class="text-[11px] font-bold uppercase tracking-wider bg-slate-200 text-slate-700 px-2.5 py-1 rounded-full">Medieval Capital</span>
+                            </div>
+                            <h3 class="font-serif-title text-xl font-bold text-slate-900 mb-2">Polonnaruwa</h3>
+                            <p class="text-xs text-sky-700 font-medium mb-3">Royal Palaces • Gal Vihara Sculptures</p>
+                            <p class="text-slate-600 text-xs sm:text-sm leading-relaxed mb-6">
+                                The second royal capital showcasing well-preserved palace ruins, royal baths, and masterfully carved rock-cut Buddha statues.
+                            </p>
+                        </div>
+                        <button onclick="openModal('Polonnaruwa', 'Historical & Cultural Heritage', 'Famed for King Parakramabahu\'s royal palace ruins, the Quadrangle, Parakrama Samudra reservoir, and colossal stone sculptures at Gal Vihara.', 'Archaeology, Rock Sculptures, Lake Vistas')" class="w-full py-2.5 px-4 bg-white border border-slate-300 hover:bg-sky-600 hover:text-white hover:border-sky-600 text-slate-800 text-xs font-semibold rounded-xl transition-all flex items-center justify-center gap-2">
+                            <span>Explore Highlights</span> <i class="fa-solid fa-arrow-right text-[10px]"></i>
+                        </button>
+                    </div>
+
+                    <!-- Slide 3: Sigiriya -->
+                    <div class="carousel-item w-full md:w-[350px] shrink-0 bg-slate-50 rounded-2xl border border-slate-200/80 p-6 flex flex-col justify-between hover:shadow-lg hover:border-sky-300 transition-all duration-300">
+                        <div>
+                            <div class="flex items-center justify-between mb-4">
+                                <div class="w-12 h-12 rounded-xl bg-amber-100 text-amber-700 flex items-center justify-center text-xl">
+                                    <i class="fa-solid fa-monument"></i>
+                                </div>
+                                <span class="text-[11px] font-bold uppercase tracking-wider bg-amber-200 text-amber-900 px-2.5 py-1 rounded-full">Wonder of World</span>
+                            </div>
+                            <h3 class="font-serif-title text-xl font-bold text-slate-900 mb-2">Sigiriya</h3>
+                            <p class="text-xs text-sky-700 font-medium mb-3">5th-Century Lion Rock • Sky Fortress</p>
+                            <p class="text-slate-600 text-xs sm:text-sm leading-relaxed mb-6">
+                                Iconic granite rock fortress built by King Kasyapa, boasting ancient water gardens, mirror wall, and heavenly frescoes.
+                            </p>
+                        </div>
+                        <button onclick="openModal('Sigiriya', 'Historical & Cultural Heritage', 'An architectural masterpiece rising 200 meters above forest canopy. Features the Lion Gateway, Heavenly Maidens frescoes, and royal water gardens.', 'Rock Climbing, History, Panoramic Views')" class="w-full py-2.5 px-4 bg-white border border-slate-300 hover:bg-sky-600 hover:text-white hover:border-sky-600 text-slate-800 text-xs font-semibold rounded-xl transition-all flex items-center justify-center gap-2">
+                            <span>Explore Highlights</span> <i class="fa-solid fa-arrow-right text-[10px]"></i>
+                        </button>
+                    </div>
+
+                    <!-- Slide 4: Dambulla -->
+                    <div class="carousel-item w-full md:w-[350px] shrink-0 bg-slate-50 rounded-2xl border border-slate-200/80 p-6 flex flex-col justify-between hover:shadow-lg hover:border-sky-300 transition-all duration-300">
+                        <div>
+                            <div class="flex items-center justify-between mb-4">
+                                <div class="w-12 h-12 rounded-xl bg-amber-100 text-amber-700 flex items-center justify-center text-xl">
+                                    <i class="fa-solid fa-archway"></i>
+                                </div>
+                                <span class="text-[11px] font-bold uppercase tracking-wider bg-slate-200 text-slate-700 px-2.5 py-1 rounded-full">Cave Monastery</span>
+                            </div>
+                            <h3 class="font-serif-title text-xl font-bold text-slate-900 mb-2">Dambulla</h3>
+                            <p class="text-xs text-sky-700 font-medium mb-3">Royal Rock Cave Temple • Murals</p>
+                            <p class="text-slate-600 text-xs sm:text-sm leading-relaxed mb-6">
+                                Largest and best-preserved cave temple complex in Sri Lanka, featuring five rock sanctuaries filled with over 150 Buddha statues.
+                            </p>
+                        </div>
+                        <button onclick="openModal('Dambulla', 'Historical & Cultural Heritage', 'Five magnificent cave temples carved into a massive rock outcrop, housing centuries-old Buddhist murals and gold-plated statues.', 'Cave Murals, Pilgrimage, Golden Temple')" class="w-full py-2.5 px-4 bg-white border border-slate-300 hover:bg-sky-600 hover:text-white hover:border-sky-600 text-slate-800 text-xs font-semibold rounded-xl transition-all flex items-center justify-center gap-2">
+                            <span>Explore Highlights</span> <i class="fa-solid fa-arrow-right text-[10px]"></i>
+                        </button>
+                    </div>
+
+                    <!-- Slide 5: Kandy -->
+                    <div class="carousel-item w-full md:w-[350px] shrink-0 bg-slate-50 rounded-2xl border border-slate-200/80 p-6 flex flex-col justify-between hover:shadow-lg hover:border-sky-300 transition-all duration-300">
+                        <div>
+                            <div class="flex items-center justify-between mb-4">
+                                <div class="w-12 h-12 rounded-xl bg-amber-100 text-amber-700 flex items-center justify-center text-xl">
+                                    <i class="fa-solid fa-[#0284c7] fa-crown"></i>
+                                </div>
+                                <span class="text-[11px] font-bold uppercase tracking-wider bg-sky-100 text-sky-800 px-2.5 py-1 rounded-full">Our HQ Base</span>
+                            </div>
+                            <h3 class="font-serif-title text-xl font-bold text-slate-900 mb-2">Kandy</h3>
+                            <p class="text-xs text-sky-700 font-medium mb-3">Temple of Tooth • Sacred Hill Capital</p>
+                            <p class="text-slate-600 text-xs sm:text-sm leading-relaxed mb-6">
+                                The last royal capital nestled amidst scenic hills and lake, housing Sri Dalada Maligawa and traditional cultural dance heritage.
+                            </p>
+                        </div>
+                        <button onclick="openModal('Kandy', 'Historical & Cultural Heritage', 'The cultural heart of Sri Lanka. Visit Sri Dalada Maligawa (Temple of the Sacred Tooth Relic), Peradeniya Royal Botanical Gardens, and scenic Kandy Lake.', 'Tooth Relic Temple, Cultural Shows, Botanical Gardens')" class="w-full py-2.5 px-4 bg-white border border-slate-300 hover:bg-sky-600 hover:text-white hover:border-sky-600 text-slate-800 text-xs font-semibold rounded-xl transition-all flex items-center justify-center gap-2">
+                            <span>Explore Highlights</span> <i class="fa-solid fa-arrow-right text-[10px]"></i>
+                        </button>
+                    </div>
+
+                    <!-- Slide 6: Jaffna -->
+                    <div class="carousel-item w-full md:w-[350px] shrink-0 bg-slate-50 rounded-2xl border border-slate-200/80 p-6 flex flex-col justify-between hover:shadow-lg hover:border-sky-300 transition-all duration-300">
+                        <div>
+                            <div class="flex items-center justify-between mb-4">
+                                <div class="w-12 h-12 rounded-xl bg-amber-100 text-amber-700 flex items-center justify-center text-xl">
+                                    <i class="fa-solid fa-place-of-worship"></i>
+                                </div>
+                                <span class="text-[11px] font-bold uppercase tracking-wider bg-slate-200 text-slate-700 px-2.5 py-1 rounded-full">Northern Realm</span>
+                            </div>
+                            <h3 class="font-serif-title text-xl font-bold text-slate-900 mb-2">Jaffna</h3>
+                            <p class="text-xs text-sky-700 font-medium mb-3">Nallur Kovil • Dutch Fort & Islands</p>
+                            <p class="text-slate-600 text-xs sm:text-sm leading-relaxed mb-6">
+                                Distinctive northern peninsula offering rich Tamil culture, vibrant Hindu kovils, historic fort, and secluded islands like Nainativu.
+                            </p>
+                        </div>
+                        <button onclick="openModal('Jaffna', 'Historical & Cultural Heritage', 'Vibrant northern city known for Nallur Kandaswamy Kovil, Jaffna Fort, Nagadeepa temple, and unique culinary traditions.', 'Hindu Kovils, Island Ferries, Northern Culture')" class="w-full py-2.5 px-4 bg-white border border-slate-300 hover:bg-sky-600 hover:text-white hover:border-sky-600 text-slate-800 text-xs font-semibold rounded-xl transition-all flex items-center justify-center gap-2">
+                            <span>Explore Highlights</span> <i class="fa-solid fa-arrow-right text-[10px]"></i>
+                        </button>
+                    </div>
+
+                    <!-- Slide 7: Ramayana Trails -->
+                    <div class="carousel-item w-full md:w-[350px] shrink-0 bg-slate-50 rounded-2xl border border-slate-200/80 p-6 flex flex-col justify-between hover:shadow-lg hover:border-sky-300 transition-all duration-300">
+                        <div>
+                            <div class="flex items-center justify-between mb-4">
+                                <div class="w-12 h-12 rounded-xl bg-amber-100 text-amber-700 flex items-center justify-center text-xl">
+                                    <i class="fa-solid fa-scroll"></i>
+                                </div>
+                                <span class="text-[11px] font-bold uppercase tracking-wider bg-slate-200 text-slate-700 px-2.5 py-1 rounded-full">Legendary Trail</span>
+                            </div>
+                            <h3 class="font-serif-title text-xl font-bold text-slate-900 mb-2">Ramayana Trails</h3>
+                            <p class="text-xs text-sky-700 font-medium mb-3">Ashok Vatika • Seetha Amman Temple</p>
+                            <p class="text-slate-600 text-xs sm:text-sm leading-relaxed mb-6">
+                                Sacred pilgrimage route connecting legendary sites from the ancient epic Ramayana including Hakgala, Munneswaram, and Sanjeevani hills.
+                            </p>
+                        </div>
+                        <button onclick="openModal('Ramayana Trails', 'Historical & Cultural Heritage', 'Specialized pilgrimage itinerary visiting Seetha Amman Temple, Ravana Caves & Waterfalls, Ashok Vatika, and Thirukoneswaram Kovil.', 'Epic Heritage, Sacred Shrines, Mountain Temples')" class="w-full py-2.5 px-4 bg-white border border-slate-300 hover:bg-sky-600 hover:text-white hover:border-sky-600 text-slate-800 text-xs font-semibold rounded-xl transition-all flex items-center justify-center gap-2">
+                            <span>Explore Highlights</span> <i class="fa-solid fa-arrow-right text-[10px]"></i>
+                        </button>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- CATEGORY 2: Coastal & Beach Destinations Carousel Card -->
+        <section id="coastal" class="scroll-mt-28">
+            <div class="bg-white rounded-3xl border border-slate-200/90 shadow-xl overflow-hidden p-6 sm:p-8 md:p-10 relative">
+                
+                <!-- Category Header -->
+                <div class="flex flex-col md:flex-row md:items-end justify-between mb-8 pb-6 border-b border-slate-100 gap-4">
+                    <div>
+                        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-md bg-sky-50 border border-sky-200 text-sky-800 text-xs font-bold uppercase tracking-wider mb-2">
+                            <i class="fa-solid fa-umbrella-beach"></i> Category 02
+                        </div>
+                        <h2 class="font-serif-title text-2xl sm:text-4xl font-bold text-slate-900">
+                            Coastal & Beach Destinations
+                        </h2>
+                        <p class="text-slate-500 text-xs sm:text-sm mt-1">
+                            Sun-drenched tropical shores, coral reefs, surfing havens, and colonial coastal forts.
+                        </p>
+                    </div>
+
+                    <!-- Carousel Controls (Hidden on Mobile) -->
+                    <div class="hidden md:flex items-center gap-3">
+                        <button onclick="scrollCarousel('track-coastal', -1)" class="w-11 h-11 rounded-full bg-slate-100 hover:bg-sky-600 text-slate-700 hover:text-white flex items-center justify-center transition-all duration-300 shadow-sm" aria-label="Previous Destination">
+                            <i class="fa-solid fa-chevron-left"></i>
+                        </button>
+                        <button onclick="scrollCarousel('track-coastal', 1)" class="w-11 h-11 rounded-full bg-slate-100 hover:bg-sky-600 text-slate-700 hover:text-white flex items-center justify-center transition-all duration-300 shadow-sm" aria-label="Next Destination">
+                            <i class="fa-solid fa-chevron-right"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <div id="track-coastal" class="flex flex-col md:flex-row gap-6 md:overflow-x-auto no-scrollbar pb-4 pt-2 carousel-track">
+                    
+                    <!-- Trincomalee -->
+                    <div class="carousel-item w-full md:w-[350px] shrink-0 bg-slate-50 rounded-2xl border border-slate-200/80 p-6 flex flex-col justify-between hover:shadow-lg hover:border-sky-300 transition-all duration-300">
+                        <div>
+                            <div class="flex items-center justify-between mb-4">
+                                <div class="w-12 h-12 rounded-xl bg-sky-100 text-sky-700 flex items-center justify-center text-xl">
+                                    <i class="fa-solid fa-water"></i>
+                                </div>
+                                <span class="text-[11px] font-bold uppercase tracking-wider bg-slate-200 text-slate-700 px-2.5 py-1 rounded-full">East Coast</span>
+                            </div>
+                            <h3 class="font-serif-title text-xl font-bold text-slate-900 mb-2">Trincomalee (Trinco)</h3>
+                            <p class="text-xs text-sky-700 font-medium mb-3">Nilaveli Beach • Pigeon Island Snorkeling</p>
+                            <p class="text-slate-600 text-xs sm:text-sm leading-relaxed mb-6">
+                                World's finest natural harbor, turquoise waters of Nilaveli, cliffside Koneswaram Kovil, and marine life at Pigeon Island.
+                            </p>
+                        </div>
+                        <button onclick="openModal('Trincomalee', 'Coastal & Beach Destinations', 'Famed for pristine powder-white Nilaveli beach, marine national park Snorkeling at Pigeon Island, and Swami Rock cliff temple.', 'Whale Watching, Snorkeling, Koneswaram Temple')" class="w-full py-2.5 px-4 bg-white border border-slate-300 hover:bg-sky-600 hover:text-white hover:border-sky-600 text-slate-800 text-xs font-semibold rounded-xl transition-all flex items-center justify-center gap-2">
+                            <span>Explore Highlights</span> <i class="fa-solid fa-arrow-right text-[10px]"></i>
+                        </button>
+                    </div>
+
+                    <!-- Pasikuda -->
+                    <div class="carousel-item w-full md:w-[350px] shrink-0 bg-slate-50 rounded-2xl border border-slate-200/80 p-6 flex flex-col justify-between hover:shadow-lg hover:border-sky-300 transition-all duration-300">
+                        <div>
+                            <div class="flex items-center justify-between mb-4">
+                                <div class="w-12 h-12 rounded-xl bg-sky-100 text-sky-700 flex items-center justify-center text-xl">
+                                    <i class="fa-solid fa-swimming-pool"></i>
+                                </div>
+                                <span class="text-[11px] font-bold uppercase tracking-wider bg-slate-200 text-slate-700 px-2.5 py-1 rounded-full">Shallow Bay</span>
+                            </div>
+                            <h3 class="font-serif-title text-xl font-bold text-slate-900 mb-2">Pasikuda</h3>
+                            <p class="text-xs text-sky-700 font-medium mb-3">Calm Barrier Reef • Luxury Resorts</p>
+                            <p class="text-slate-600 text-xs sm:text-sm leading-relaxed mb-6">
+                                Famous for its shallow outer reef allowing visitors to walk hundreds of meters into crystal-clear turquoise waters safely.
+                            </p>
+                        </div>
+                        <button onclick="openModal('Pasikuda', 'Coastal & Beach Destinations', 'A pristine bay protected by a natural coral reef, ideal for swimming, family beach holidays, and luxury coastal relaxation.', 'Shallow Waters, Water Sports, Luxury Resorts')" class="w-full py-2.5 px-4 bg-white border border-slate-300 hover:bg-sky-600 hover:text-white hover:border-sky-600 text-slate-800 text-xs font-semibold rounded-xl transition-all flex items-center justify-center gap-2">
+                            <span>Explore Highlights</span> <i class="fa-solid fa-arrow-right text-[10px]"></i>
+                        </button>
+                    </div>
+
+                    <!-- Mirissa -->
+                    <div class="carousel-item w-full md:w-[350px] shrink-0 bg-slate-50 rounded-2xl border border-slate-200/80 p-6 flex flex-col justify-between hover:shadow-lg hover:border-sky-300 transition-all duration-300">
+                        <div>
+                            <div class="flex items-center justify-between mb-4">
+                                <div class="w-12 h-12 rounded-xl bg-sky-100 text-sky-700 flex items-center justify-center text-xl">
+                                    <i class="fa-solid fa-fish"></i>
+                                </div>
+                                <span class="text-[11px] font-bold uppercase tracking-wider bg-slate-200 text-slate-700 px-2.5 py-1 rounded-full">South Coast</span>
+                            </div>
+                            <h3 class="font-serif-title text-xl font-bold text-slate-900 mb-2">Mirissa</h3>
+                            <p class="text-xs text-sky-700 font-medium mb-3">Blue Whale Safaris • Coconut Tree Hill</p>
+                            <p class="text-slate-600 text-xs sm:text-sm leading-relaxed mb-6">
+                                World-class whale watching hub, crescent-shaped sandy bay, iconic palm groves, and vibrant evening beach dining.
+                            </p>
+                        </div>
+                        <button onclick="openModal('Mirissa', 'Coastal & Beach Destinations', 'One of the best places on Earth to spot Blue Whales and Dolphins. Iconic spots include Coconut Tree Hill and Secret Beach.', 'Whale Safaris, Sunset Views, Coastal Dining')" class="w-full py-2.5 px-4 bg-white border border-slate-300 hover:bg-sky-600 hover:text-white hover:border-sky-600 text-slate-800 text-xs font-semibold rounded-xl transition-all flex items-center justify-center gap-2">
+                            <span>Explore Highlights</span> <i class="fa-solid fa-arrow-right text-[10px]"></i>
+                        </button>
+                    </div>
+
+                    <!-- Weligama -->
+                    <div class="carousel-item w-full md:w-[350px] shrink-0 bg-slate-50 rounded-2xl border border-slate-200/80 p-6 flex flex-col justify-between hover:shadow-lg hover:border-sky-300 transition-all duration-300">
+                        <div>
+                            <div class="flex items-center justify-between mb-4">
+                                <div class="w-12 h-12 rounded-xl bg-sky-100 text-sky-700 flex items-center justify-center text-xl">
+                                    <i class="fa-solid fa-water"></i>
+                                </div>
+                                <span class="text-[11px] font-bold uppercase tracking-wider bg-slate-200 text-slate-700 px-2.5 py-1 rounded-full">Surf & Culture</span>
+                            </div>
+                            <h3 class="font-serif-title text-xl font-bold text-slate-900 mb-2">Weligama</h3>
+                            <p class="text-xs text-sky-700 font-medium mb-3">Beginner Surfing • Stilt Fishermen</p>
+                            <p class="text-slate-600 text-xs sm:text-sm leading-relaxed mb-6">
+                                Broad sandy bay famous for gentle waves ideal for surf learners, Taprobane Island, and traditional stilt fishermen.
+                            </p>
+                        </div>
+                        <button onclick="openModal('Weligama', 'Coastal & Beach Destinations', 'A surfing haven with sandy bottom break, Taprobane offshore island, and cultural encounters with traditional stilt fishermen.', 'Surf Schools, Taprobane Island, Stilt Fishing')" class="w-full py-2.5 px-4 bg-white border border-slate-300 hover:bg-sky-600 hover:text-white hover:border-sky-600 text-slate-800 text-xs font-semibold rounded-xl transition-all flex items-center justify-center gap-2">
+                            <span>Explore Highlights</span> <i class="fa-solid fa-arrow-right text-[10px]"></i>
+                        </button>
+                    </div>
+
+                    <!-- Mannar -->
+                    <div class="carousel-item w-full md:w-[350px] shrink-0 bg-slate-50 rounded-2xl border border-slate-200/80 p-6 flex flex-col justify-between hover:shadow-lg hover:border-sky-300 transition-all duration-300">
+                        <div>
+                            <div class="flex items-center justify-between mb-4">
+                                <div class="w-12 h-12 rounded-xl bg-sky-100 text-sky-700 flex items-center justify-center text-xl">
+                                    <i class="fa-solid fa-tree"></i>
+                                </div>
+                                <span class="text-[11px] font-bold uppercase tracking-wider bg-slate-200 text-slate-700 px-2.5 py-1 rounded-full">North-West Island</span>
+                            </div>
+                            <h3 class="font-serif-title text-xl font-bold text-slate-900 mb-2">Mannar</h3>
+                            <p class="text-xs text-sky-700 font-medium mb-3">Baobab Trees • Adam's Bridge Causeway</p>
+                            <p class="text-slate-600 text-xs sm:text-sm leading-relaxed mb-6">
+                                Remote windswept island island home to ancient Arabian baobab trees, flamingos, Portuguese fort, and Adam's Bridge sandbanks.
+                            </p>
+                        </div>
+                        <button onclick="openModal('Mannar', 'Coastal & Beach Destinations', 'Unique island environment with centuries-old Baobab trees, wild donkeys, migratory flamingos, and the historic Mannar Fort.', 'Birdwatching, Ancient Baobabs, Remote Island')" class="w-full py-2.5 px-4 bg-white border border-slate-300 hover:bg-sky-600 hover:text-white hover:border-sky-600 text-slate-800 text-xs font-semibold rounded-xl transition-all flex items-center justify-center gap-2">
+                            <span>Explore Highlights</span> <i class="fa-solid fa-arrow-right text-[10px]"></i>
+                        </button>
+                    </div>
+
+                    <!-- Hikkaduwa -->
+                    <div class="carousel-item w-full md:w-[350px] shrink-0 bg-slate-50 rounded-2xl border border-slate-200/80 p-6 flex flex-col justify-between hover:shadow-lg hover:border-sky-300 transition-all duration-300">
+                        <div>
+                            <div class="flex items-center justify-between mb-4">
+                                <div class="w-12 h-12 rounded-xl bg-sky-100 text-sky-700 flex items-center justify-center text-xl">
+                                    <i class="fa-solid fa-life-ring"></i>
+                                </div>
+                                <span class="text-[11px] font-bold uppercase tracking-wider bg-slate-200 text-slate-700 px-2.5 py-1 rounded-full">South-West Coast</span>
+                            </div>
+                            <h3 class="font-serif-title text-xl font-bold text-slate-900 mb-2">Hikkaduwa</h3>
+                            <p class="text-xs text-sky-700 font-medium mb-3">Coral Sanctuary • Sea Turtles</p>
+                            <p class="text-slate-600 text-xs sm:text-sm leading-relaxed mb-6">
+                                Lively beach town famous for wild sea turtles coming right up to the shoreline, coral reef snorkeling, and surfing.
+                            </p>
+                        </div>
+                        <button onclick="openModal('Hikkaduwa', 'Coastal & Beach Destinations', 'Famous for Hikkaduwa Coral Sanctuary, glass-bottom boat tours, feeding wild sea turtles, and vibrant nightlife.', 'Sea Turtles, Coral Reefs, Glass-Bottom Boats')" class="w-full py-2.5 px-4 bg-white border border-slate-300 hover:bg-sky-600 hover:text-white hover:border-sky-600 text-slate-800 text-xs font-semibold rounded-xl transition-all flex items-center justify-center gap-2">
+                            <span>Explore Highlights</span> <i class="fa-solid fa-arrow-right text-[10px]"></i>
+                        </button>
+                    </div>
+
+                    <!-- Kalpitiya -->
+                    <div class="carousel-item w-full md:w-[350px] shrink-0 bg-slate-50 rounded-2xl border border-slate-200/80 p-6 flex flex-col justify-between hover:shadow-lg hover:border-sky-300 transition-all duration-300">
+                        <div>
+                            <div class="flex items-center justify-between mb-4">
+                                <div class="w-12 h-12 rounded-xl bg-sky-100 text-sky-700 flex items-center justify-center text-xl">
+                                    <i class="fa-solid fa-wind"></i>
+                                </div>
+                                <span class="text-[11px] font-bold uppercase tracking-wider bg-slate-200 text-slate-700 px-2.5 py-1 rounded-full">Kitesurf Capital</span>
+                            </div>
+                            <h3 class="font-serif-title text-xl font-bold text-slate-900 mb-2">Kalpitiya</h3>
+                            <p class="text-xs text-sky-700 font-medium mb-3">Lagoon Kitesurfing • Dolphin Pods</p>
+                            <p class="text-slate-600 text-xs sm:text-sm leading-relaxed mb-6">
+                                Coastal peninsula renowned as South Asia's premier kitesurfing destination and home to massive pod schools of spinner dolphins.
+                            </p>
+                        </div>
+                        <button onclick="openModal('Kalpitiya', 'Coastal & Beach Destinations', 'A marine paradise with flat-water lagoons for kitesurfing and ocean boat safaris encountering hundreds of wild dolphins.', 'Kitesurfing, Dolphin Safaris, Eco Lagoons')" class="w-full py-2.5 px-4 bg-white border border-slate-300 hover:bg-sky-600 hover:text-white hover:border-sky-600 text-slate-800 text-xs font-semibold rounded-xl transition-all flex items-center justify-center gap-2">
+                            <span>Explore Highlights</span> <i class="fa-solid fa-arrow-right text-[10px]"></i>
+                        </button>
+                    </div>
+
+                    <!-- Negombo -->
+                    <div class="carousel-item w-full md:w-[350px] shrink-0 bg-slate-50 rounded-2xl border border-slate-200/80 p-6 flex flex-col justify-between hover:shadow-lg hover:border-sky-300 transition-all duration-300">
+                        <div>
+                            <div class="flex items-center justify-between mb-4">
+                                <div class="w-12 h-12 rounded-xl bg-sky-100 text-sky-700 flex items-center justify-center text-xl">
+                                    <i class="fa-solid fa-anchor"></i>
+                                </div>
+                                <span class="text-[11px] font-bold uppercase tracking-wider bg-slate-200 text-slate-700 px-2.5 py-1 rounded-full">Airport Gateway</span>
+                            </div>
+                            <h3 class="font-serif-title text-xl font-bold text-slate-900 mb-2">Negombo</h3>
+                            <p class="text-xs text-sky-700 font-medium mb-3">Dutch Canals • Lagoon Fish Market</p>
+                            <p class="text-slate-600 text-xs sm:text-sm leading-relaxed mb-6">
+                                Convenient coastal town located 15 minutes from international airport, rich in colonial Dutch canal history and fish markets.
+                            </p>
+                        </div>
+                        <button onclick="openModal('Negombo', 'Coastal & Beach Destinations', 'Ideal starting or ending location for tours. Highlights include Dutch Fort ruins, Hamilton Canal boat tours, and golden beach resorts.', 'Lagoon Safaris, Dutch Canals, Fish Market')" class="w-full py-2.5 px-4 bg-white border border-slate-300 hover:bg-sky-600 hover:text-white hover:border-sky-600 text-slate-800 text-xs font-semibold rounded-xl transition-all flex items-center justify-center gap-2">
+                            <span>Explore Highlights</span> <i class="fa-solid fa-arrow-right text-[10px]"></i>
+                        </button>
+                    </div>
+
+                    <!-- Arugam Bay -->
+                    <div class="carousel-item w-full md:w-[350px] shrink-0 bg-slate-50 rounded-2xl border border-slate-200/80 p-6 flex flex-col justify-between hover:shadow-lg hover:border-sky-300 transition-all duration-300">
+                        <div>
+                            <div class="flex items-center justify-between mb-4">
+                                <div class="w-12 h-12 rounded-xl bg-sky-100 text-sky-700 flex items-center justify-center text-xl">
+                                    <i class="fa-solid fa-layer-group"></i>
+                                </div>
+                                <span class="text-[11px] font-bold uppercase tracking-wider bg-slate-200 text-slate-700 px-2.5 py-1 rounded-full">World Surf Point</span>
+                            </div>
+                            <h3 class="font-serif-title text-xl font-bold text-slate-900 mb-2">Arugam Bay</h3>
+                            <p class="text-xs text-sky-700 font-medium mb-3">Right-Hand Point Break • Elephant Safaris</p>
+                            <p class="text-slate-600 text-xs sm:text-sm leading-relaxed mb-6">
+                                World-famous surfing mecca on the southeast coast with chilled-out beach vibe, Kumana bird sanctuary, and lagoon safaris.
+                            </p>
+                        </div>
+                        <button onclick="openModal('Arugam Bay', 'Coastal & Beach Destinations', 'Globally ranked surf destination featuring Main Point break, Elephant Rock sunset point, and Kottukal lagoon wildlife.', 'World-Class Surfing, Lagoon Safaris, Beach Vibe')" class="w-full py-2.5 px-4 bg-white border border-slate-300 hover:bg-sky-600 hover:text-white hover:border-sky-600 text-slate-800 text-xs font-semibold rounded-xl transition-all flex items-center justify-center gap-2">
+                            <span>Explore Highlights</span> <i class="fa-solid fa-arrow-right text-[10px]"></i>
+                        </button>
+                    </div>
+
+                    <!-- Bentota -->
+                    <div class="carousel-item w-full md:w-[350px] shrink-0 bg-slate-50 rounded-2xl border border-slate-200/80 p-6 flex flex-col justify-between hover:shadow-lg hover:border-sky-300 transition-all duration-300">
+                        <div>
+                            <div class="flex items-center justify-between mb-4">
+                                <div class="w-12 h-12 rounded-xl bg-sky-100 text-sky-700 flex items-center justify-center text-xl">
+                                    <i class="fa-solid fa-ship"></i>
+                                </div>
+                                <span class="text-[11px] font-bold uppercase tracking-wider bg-slate-200 text-slate-700 px-2.5 py-1 rounded-full">River & Resort</span>
+                            </div>
+                            <h3 class="font-serif-title text-xl font-bold text-slate-900 mb-2">Bentota</h3>
+                            <p class="text-xs text-sky-700 font-medium mb-3">Bentota River Safari • Water Sports</p>
+                            <p class="text-slate-600 text-xs sm:text-sm leading-relaxed mb-6">
+                                Prime water sports hub featuring jet-skiing, river mangrove safaris, cinnamon island visits, and luxury beachfront hotels.
+                            </p>
+                        </div>
+                        <button onclick="openModal('Bentota', 'Coastal & Beach Destinations', 'The water sports capital of Sri Lanka. Take a boat safari up Madu Ganga river mangroves and visit Geoffrey Bawa\'s Brief Garden.', 'Water Sports, River Safaris, Luxury Stays')" class="w-full py-2.5 px-4 bg-white border border-slate-300 hover:bg-sky-600 hover:text-white hover:border-sky-600 text-slate-800 text-xs font-semibold rounded-xl transition-all flex items-center justify-center gap-2">
+                            <span>Explore Highlights</span> <i class="fa-solid fa-arrow-right text-[10px]"></i>
+                        </button>
+                    </div>
+
+                    <!-- Galle -->
+                    <div class="carousel-item w-full md:w-[350px] shrink-0 bg-slate-50 rounded-2xl border border-slate-200/80 p-6 flex flex-col justify-between hover:shadow-lg hover:border-sky-300 transition-all duration-300">
+                        <div>
+                            <div class="flex items-center justify-between mb-4">
+                                <div class="w-12 h-12 rounded-xl bg-sky-100 text-sky-700 flex items-center justify-center text-xl">
+                                    <i class="fa-solid fa-shield-cat"></i>
+                                </div>
+                                <span class="text-[11px] font-bold uppercase tracking-wider bg-slate-200 text-slate-700 px-2.5 py-1 rounded-full">UNESCO Dutch Fort</span>
+                            </div>
+                            <h3 class="font-serif-title text-xl font-bold text-slate-900 mb-2">Galle</h3>
+                            <p class="text-xs text-sky-700 font-medium mb-3">Dutch Ramparts • Boutique Streets</p>
+                            <p class="text-slate-600 text-xs sm:text-sm leading-relaxed mb-6">
+                                Living 16th-century Dutch fortress with cobblestone alleys, lighthouse, artisan cafes, jewelry boutiques, and ocean ramparts.
+                            </p>
+                        </div>
+                        <button onclick="openModal('Galle', 'Coastal & Beach Destinations', 'Walk along ancient stone ramparts, visit Galle Lighthouse, Groote Kerk church, and explore charming artisan cafes and boutiques.', 'UNESCO Dutch Fort, Rampart Walks, Heritage Shopping')" class="w-full py-2.5 px-4 bg-white border border-slate-300 hover:bg-sky-600 hover:text-white hover:border-sky-600 text-slate-800 text-xs font-semibold rounded-xl transition-all flex items-center justify-center gap-2">
+                            <span>Explore Highlights</span> <i class="fa-solid fa-arrow-right text-[10px]"></i>
+                        </button>
+                    </div>
+
+                    <!-- Colombo -->
+                    <div class="carousel-item w-full md:w-[350px] shrink-0 bg-slate-50 rounded-2xl border border-slate-200/80 p-6 flex flex-col justify-between hover:shadow-lg hover:border-sky-300 transition-all duration-300">
+                        <div>
+                            <div class="flex items-center justify-between mb-4">
+                                <div class="w-12 h-12 rounded-xl bg-sky-100 text-sky-700 flex items-center justify-center text-xl">
+                                    <i class="fa-solid fa-city"></i>
+                                </div>
+                                <span class="text-[11px] font-bold uppercase tracking-wider bg-slate-200 text-slate-700 px-2.5 py-1 rounded-full">Commercial Capital</span>
+                            </div>
+                            <h3 class="font-serif-title text-xl font-bold text-slate-900 mb-2">Colombo</h3>
+                            <p class="text-xs text-sky-700 font-medium mb-3">Galle Face Green • Lotus Tower</p>
+                            <p class="text-slate-600 text-xs sm:text-sm leading-relaxed mb-6">
+                                Vibrant seaside capital blending modern skyscrapers, colonial Portuguese & British heritage buildings, street markets, and fine dining.
+                            </p>
+                        </div>
+                        <button onclick="openModal('Colombo', 'Coastal & Beach Destinations', 'Experience Lotus Tower, Pettah market bazaars, Gangaramaya Temple on Beira Lake, and oceanfront dining at Galle Face Green.', 'City Tours, Colonial Architecture, Shopping')" class="w-full py-2.5 px-4 bg-white border border-slate-300 hover:bg-sky-600 hover:text-white hover:border-sky-600 text-slate-800 text-xs font-semibold rounded-xl transition-all flex items-center justify-center gap-2">
+                            <span>Explore Highlights</span> <i class="fa-solid fa-arrow-right text-[10px]"></i>
+                        </button>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- CATEGORY 3: Hill Country & Highlands Carousel Card -->
+        <section id="highlands" class="scroll-mt-28">
+            <div class="bg-white rounded-3xl border border-slate-200/90 shadow-xl overflow-hidden p-6 sm:p-8 md:p-10 relative">
+                
+                <!-- Category Header -->
+                <div class="flex flex-col md:flex-row md:items-end justify-between mb-8 pb-6 border-b border-slate-100 gap-4">
+                    <div>
+                        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-md bg-emerald-50 border border-emerald-200 text-emerald-800 text-xs font-bold uppercase tracking-wider mb-2">
+                            <i class="fa-solid fa-mountain text-emerald-600"></i> Category 03
+                        </div>
+                        <h2 class="font-serif-title text-2xl sm:text-4xl font-bold text-slate-900">
+                            Hill Country & Highlands
+                        </h2>
+                        <p class="text-slate-500 text-xs sm:text-sm mt-1">
+                            Misty green mountain peaks, cascading waterfalls, tea factories, and panoramic train rides.
+                        </p>
+                    </div>
+
+                    <!-- Carousel Controls (Hidden on Mobile) -->
+                    <div class="hidden md:flex items-center gap-3">
+                        <button onclick="scrollCarousel('track-highlands', -1)" class="w-11 h-11 rounded-full bg-slate-100 hover:bg-sky-600 text-slate-700 hover:text-white flex items-center justify-center transition-all duration-300 shadow-sm" aria-label="Previous Destination">
+                            <i class="fa-solid fa-chevron-left"></i>
+                        </button>
+                        <button onclick="scrollCarousel('track-highlands', 1)" class="w-11 h-11 rounded-full bg-slate-100 hover:bg-sky-600 text-slate-700 hover:text-white flex items-center justify-center transition-all duration-300 shadow-sm" aria-label="Next Destination">
+                            <i class="fa-solid fa-chevron-right"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <div id="track-highlands" class="flex flex-col md:flex-row gap-6 md:overflow-x-auto no-scrollbar pb-4 pt-2 carousel-track">
+                    
+                    <!-- Nuwara Eliya -->
+                    <div class="carousel-item w-full md:w-[380px] shrink-0 bg-slate-50 rounded-2xl border border-slate-200/80 p-6 flex flex-col justify-between hover:shadow-lg hover:border-sky-300 transition-all duration-300">
+                        <div>
+                            <div class="flex items-center justify-between mb-4">
+                                <div class="w-12 h-12 rounded-xl bg-emerald-100 text-emerald-700 flex items-center justify-center text-xl">
+                                    <i class="fa-solid fa-leaf"></i>
+                                </div>
+                                <span class="text-[11px] font-bold uppercase tracking-wider bg-slate-200 text-slate-700 px-2.5 py-1 rounded-full">Little England</span>
+                            </div>
+                            <h3 class="font-serif-title text-xl font-bold text-slate-900 mb-2">Nuwara Eliya</h3>
+                            <p class="text-xs text-sky-700 font-medium mb-3">Tea Estates • Gregory Lake • Cool Climate</p>
+                            <p class="text-slate-600 text-xs sm:text-sm leading-relaxed mb-6">
+                                Highest town in Sri Lanka at 1,868m elevation, featuring cool crisp mountain weather, colonial bungalows, Hakgala Gardens, and Ceylon tea tasting.
+                            </p>
+                        </div>
+                        <button onclick="openModal('Nuwara Eliya', 'Hill Country & Highlands', 'Known as \'Little England\' for its Tudor-style architecture, golf courses, Gregory Lake boating, and world-renowned Ceylon tea processing factories.', 'Tea Factory Tours, Lake Boating, Mountain Climate')" class="w-full py-2.5 px-4 bg-white border border-slate-300 hover:bg-sky-600 hover:text-white hover:border-sky-600 text-slate-800 text-xs font-semibold rounded-xl transition-all flex items-center justify-center gap-2">
+                            <span>Explore Highlights</span> <i class="fa-solid fa-arrow-right text-[10px]"></i>
+                        </button>
+                    </div>
+
+                    <!-- Ella -->
+                    <div class="carousel-item w-full md:w-[380px] shrink-0 bg-slate-50 rounded-2xl border border-slate-200/80 p-6 flex flex-col justify-between hover:shadow-lg hover:border-sky-300 transition-all duration-300">
+                        <div>
+                            <div class="flex items-center justify-between mb-4">
+                                <div class="w-12 h-12 rounded-xl bg-emerald-100 text-emerald-700 flex items-center justify-center text-xl">
+                                    <i class="fa-solid fa-train"></i>
+                                </div>
+                                <span class="text-[11px] font-bold uppercase tracking-wider bg-slate-200 text-slate-700 px-2.5 py-1 rounded-full">Scenic Mountain Hub</span>
+                            </div>
+                            <h3 class="font-serif-title text-xl font-bold text-slate-900 mb-2">Ella</h3>
+                            <p class="text-xs text-sky-700 font-medium mb-3">Nine Arch Bridge • Little Adam's Peak</p>
+                            <p class="text-slate-600 text-xs sm:text-sm leading-relaxed mb-6">
+                                World-famous mountain village offering iconic blue train journeys over Nine Arch Bridge, Ravana waterfall, and hiking trails with Ella Gap vistas.
+                            </p>
+                        </div>
+                        <button onclick="openModal('Ella', 'Hill Country & Highlands', 'A favorite for travelers worldwide. Hike Little Adam\'s Peak, photograph trains crossing Nine Arch Bridge, and zip-line through valley gap views.', 'Nine Arch Bridge, Scenic Train Ride, Hiking Trails')" class="w-full py-2.5 px-4 bg-white border border-slate-300 hover:bg-sky-600 hover:text-white hover:border-sky-600 text-slate-800 text-xs font-semibold rounded-xl transition-all flex items-center justify-center gap-2">
+                            <span>Explore Highlights</span> <i class="fa-solid fa-arrow-right text-[10px]"></i>
+                        </button>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- CATEGORY 4: Wildlife, Nature & Adventure Carousel Card -->
+        <section id="wildlife" class="scroll-mt-28">
+            <div class="bg-white rounded-3xl border border-slate-200/90 shadow-xl overflow-hidden p-6 sm:p-8 md:p-10 relative">
+                
+                <!-- Category Header -->
+                <div class="flex flex-col md:flex-row md:items-end justify-between mb-8 pb-6 border-b border-slate-100 gap-4">
+                    <div>
+                        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-md bg-orange-50 border border-orange-200 text-orange-800 text-xs font-bold uppercase tracking-wider mb-2">
+                            <i class="fa-solid fa-paw text-orange-600"></i> Category 04
+                        </div>
+                        <h2 class="font-serif-title text-2xl sm:text-4xl font-bold text-slate-900">
+                            Wildlife, Nature & Adventure
+                        </h2>
+                        <p class="text-slate-500 text-xs sm:text-sm mt-1">
+                            Jeep safaris, wild elephant herds, elusive leopards, white-water rafting, and rainforest biodiversity.
+                        </p>
+                    </div>
+
+                    <!-- Carousel Controls (Hidden on Mobile) -->
+                    <div class="hidden md:flex items-center gap-3">
+                        <button onclick="scrollCarousel('track-wildlife', -1)" class="w-11 h-11 rounded-full bg-slate-100 hover:bg-sky-600 text-slate-700 hover:text-white flex items-center justify-center transition-all duration-300 shadow-sm" aria-label="Previous Destination">
+                            <i class="fa-solid fa-chevron-left"></i>
+                        </button>
+                        <button onclick="scrollCarousel('track-wildlife', 1)" class="w-11 h-11 rounded-full bg-slate-100 hover:bg-sky-600 text-slate-700 hover:text-white flex items-center justify-center transition-all duration-300 shadow-sm" aria-label="Next Destination">
+                            <i class="fa-solid fa-chevron-right"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <div id="track-wildlife" class="flex flex-col md:flex-row gap-6 md:overflow-x-auto no-scrollbar pb-4 pt-2 carousel-track">
+                    
+                    <!-- Habarana -->
+                    <div class="carousel-item w-full md:w-[350px] shrink-0 bg-slate-50 rounded-2xl border border-slate-200/80 p-6 flex flex-col justify-between hover:shadow-lg hover:border-sky-300 transition-all duration-300">
+                        <div>
+                            <div class="flex items-center justify-between mb-4">
+                                <div class="w-12 h-12 rounded-xl bg-orange-100 text-orange-700 flex items-center justify-center text-xl">
+                                    <i class="fa-solid fa-hippo"></i>
+                                </div>
+                                <span class="text-[11px] font-bold uppercase tracking-wider bg-slate-200 text-slate-700 px-2.5 py-1 rounded-full">Eco Hub</span>
+                            </div>
+                            <h3 class="font-serif-title text-xl font-bold text-slate-900 mb-2">Habarana</h3>
+                            <p class="text-xs text-sky-700 font-medium mb-3">Minneriya Elephant Gathering • Eco Safaris</p>
+                            <p class="text-slate-600 text-xs sm:text-sm leading-relaxed mb-6">
+                                Gateway hub for Minneriya & Kaudulla national park safaris, famous for the annual Gathering of hundreds of wild Asian elephants.
+                            </p>
+                        </div>
+                        <button onclick="openModal('Habarana', 'Wildlife, Nature & Adventure', 'Central hub for eco-lodges and 4x4 jeep safaris to watch wild elephant herds gathering around ancient reservoir tanks.', 'Jeep Safaris, Elephant Herds, Lake Village Tours')" class="w-full py-2.5 px-4 bg-white border border-slate-300 hover:bg-sky-600 hover:text-white hover:border-sky-600 text-slate-800 text-xs font-semibold rounded-xl transition-all flex items-center justify-center gap-2">
+                            <span>Explore Highlights</span> <i class="fa-solid fa-arrow-right text-[10px]"></i>
+                        </button>
+                    </div>
+
+                    <!-- Kitulgala -->
+                    <div class="carousel-item w-full md:w-[350px] shrink-0 bg-slate-50 rounded-2xl border border-slate-200/80 p-6 flex flex-col justify-between hover:shadow-lg hover:border-sky-300 transition-all duration-300">
+                        <div>
+                            <div class="flex items-center justify-between mb-4">
+                                <div class="w-12 h-12 rounded-xl bg-orange-100 text-orange-700 flex items-center justify-center text-xl">
+                                    <i class="fa-solid fa-person-swimming"></i>
+                                </div>
+                                <span class="text-[11px] font-bold uppercase tracking-wider bg-slate-200 text-slate-700 px-2.5 py-1 rounded-full">Adventure Capital</span>
+                            </div>
+                            <h3 class="font-serif-title text-xl font-bold text-slate-900 mb-2">Kitulgala</h3>
+                            <p class="text-xs text-sky-700 font-medium mb-3">White-Water Rafting • Kelani River</p>
+                            <p class="text-slate-600 text-xs sm:text-sm leading-relaxed mb-6">
+                                Thrilling outdoor adventure zone set along Kelani River, featuring white-water rafting rapids, canyoning, and jungle trekking.
+                            </p>
+                        </div>
+                        <button onclick="openModal('Kitulgala', 'Wildlife, Nature & Adventure', 'Sri Lanka\'s main adrenaline hotspot. Experience Grade 3 white-water rafting, waterfall abseiling, and jungle walks.', 'White-Water Rafting, Rainforest Trekking, Canyoning')" class="w-full py-2.5 px-4 bg-white border border-slate-300 hover:bg-sky-600 hover:text-white hover:border-sky-600 text-slate-800 text-xs font-semibold rounded-xl transition-all flex items-center justify-center gap-2">
+                            <span>Explore Highlights</span> <i class="fa-solid fa-arrow-right text-[10px]"></i>
+                        </button>
+                    </div>
+
+                    <!-- Sinharaja -->
+                    <div class="carousel-item w-full md:w-[350px] shrink-0 bg-slate-50 rounded-2xl border border-slate-200/80 p-6 flex flex-col justify-between hover:shadow-lg hover:border-sky-300 transition-all duration-300">
+                        <div>
+                            <div class="flex items-center justify-between mb-4">
+                                <div class="w-12 h-12 rounded-xl bg-orange-100 text-orange-700 flex items-center justify-center text-xl">
+                                    <i class="fa-solid fa-tree"></i>
+                                </div>
+                                <span class="text-[11px] font-bold uppercase tracking-wider bg-slate-200 text-slate-700 px-2.5 py-1 rounded-full">UNESCO Rainforest</span>
+                            </div>
+                            <h3 class="font-serif-title text-xl font-bold text-slate-900 mb-2">Sinharaja</h3>
+                            <p class="text-xs text-sky-700 font-medium mb-3">Primary Virgin Rainforest • Endemic Birds</p>
+                            <p class="text-slate-600 text-xs sm:text-sm leading-relaxed mb-6">
+                                Last viable area of primary tropical rainforest in Sri Lanka, boasting immense biodiversity with rare endemic flora and bird species.
+                            </p>
+                        </div>
+                        <button onclick="openModal('Sinharaja', 'Wildlife, Nature & Adventure', 'A UNESCO World Heritage Biosphere Reserve. Guided naturalists walk under dense canopy to spot endemic birds, purple-faced langurs, and rare frogs.', 'Rainforest Hikes, Bird Watching, Nature Photography')" class="w-full py-2.5 px-4 bg-white border border-slate-300 hover:bg-sky-600 hover:text-white hover:border-sky-600 text-slate-800 text-xs font-semibold rounded-xl transition-all flex items-center justify-center gap-2">
+                            <span>Explore Highlights</span> <i class="fa-solid fa-arrow-right text-[10px]"></i>
+                        </button>
+                    </div>
+
+                    <!-- Udawalawe -->
+                    <div class="carousel-item w-full md:w-[350px] shrink-0 bg-slate-50 rounded-2xl border border-slate-200/80 p-6 flex flex-col justify-between hover:shadow-lg hover:border-sky-300 transition-all duration-300">
+                        <div>
+                            <div class="flex items-center justify-between mb-4">
+                                <div class="w-12 h-12 rounded-xl bg-orange-100 text-orange-700 flex items-center justify-center text-xl">
+                                    <i class="fa-solid fa-hat-cowboy"></i>
+                                </div>
+                                <span class="text-[11px] font-bold uppercase tracking-wider bg-slate-200 text-slate-700 px-2.5 py-1 rounded-full">Elephant Sanctuary</span>
+                            </div>
+                            <h3 class="font-serif-title text-xl font-bold text-slate-900 mb-2">Udawalawe</h3>
+                            <p class="text-xs text-sky-700 font-medium mb-3">Elephant Transit Home • Open Plains</p>
+                            <p class="text-slate-600 text-xs sm:text-sm leading-relaxed mb-6">
+                                Open grassland national park guaranteeing wild elephant sightings year-round along with water buffalo, deer, and raptors.
+                            </p>
+                        </div>
+                        <button onclick="openModal('Udawalawe', 'Wildlife, Nature & Adventure', 'One of Sri Lanka\'s top safari parks. Visit the Elephant Transit Home to observe rehabilitated orphan calves before open park 4x4 safari.', 'Elephant Safaris, Transit Home, Open Savannah')" class="w-full py-2.5 px-4 bg-white border border-slate-300 hover:bg-sky-600 hover:text-white hover:border-sky-600 text-slate-800 text-xs font-semibold rounded-xl transition-all flex items-center justify-center gap-2">
+                            <span>Explore Highlights</span> <i class="fa-solid fa-arrow-right text-[10px]"></i>
+                        </button>
+                    </div>
+
+                    <!-- Wilpattu -->
+                    <div class="carousel-item w-full md:w-[350px] shrink-0 bg-slate-50 rounded-2xl border border-slate-200/80 p-6 flex flex-col justify-between hover:shadow-lg hover:border-sky-300 transition-all duration-300">
+                        <div>
+                            <div class="flex items-center justify-between mb-4">
+                                <div class="w-12 h-12 rounded-xl bg-orange-100 text-orange-700 flex items-center justify-center text-xl">
+                                    <i class="fa-solid fa-compass"></i>
+                                </div>
+                                <span class="text-[11px] font-bold uppercase tracking-wider bg-slate-200 text-slate-700 px-2.5 py-1 rounded-full">Natural Lakes</span>
+                            </div>
+                            <h3 class="font-serif-title text-xl font-bold text-slate-900 mb-2">Wilpattu</h3>
+                            <p class="text-xs text-sky-700 font-medium mb-3">Natural Villu Lakes • Sloth Bears & Leopards</p>
+                            <p class="text-slate-600 text-xs sm:text-sm leading-relaxed mb-6">
+                                Sri Lanka's largest national park famous for unique sand-rimmed natural rainfed lakes (Villus) and tranquil leopard tracking.
+                            </p>
+                        </div>
+                        <button onclick="openModal('Wilpattu', 'Wildlife, Nature & Adventure', 'A peaceful wilderness park featuring over 60 natural lakes, dense dry forest cover, Sri Lankan leopards, and sloth bears.', 'Quiet Safari, Villu Lakes, Wilderness Tracking')" class="w-full py-2.5 px-4 bg-white border border-slate-300 hover:bg-sky-600 hover:text-white hover:border-sky-600 text-slate-800 text-xs font-semibold rounded-xl transition-all flex items-center justify-center gap-2">
+                            <span>Explore Highlights</span> <i class="fa-solid fa-arrow-right text-[10px]"></i>
+                        </button>
+                    </div>
+
+                    <!-- Yala -->
+                    <div class="carousel-item w-full md:w-[350px] shrink-0 bg-slate-50 rounded-2xl border border-slate-200/80 p-6 flex flex-col justify-between hover:shadow-lg hover:border-sky-300 transition-all duration-300">
+                        <div>
+                            <div class="flex items-center justify-between mb-4">
+                                <div class="w-12 h-12 rounded-xl bg-orange-100 text-orange-700 flex items-center justify-center text-xl">
+                                    <i class="fa-solid fa-shield-cat"></i>
+                                </div>
+                                <span class="text-[11px] font-bold uppercase tracking-wider bg-orange-200 text-orange-900 px-2.5 py-1 rounded-full">Leopard Capital</span>
+                            </div>
+                            <h3 class="font-serif-title text-xl font-bold text-slate-900 mb-2">Yala National Park</h3>
+                            <p class="text-xs text-sky-700 font-medium mb-3">Highest Leopard Density • Coastal Wilderness</p>
+                            <p class="text-slate-600 text-xs sm:text-sm leading-relaxed mb-6">
+                                Premier wildlife destination on the island boasting the world's highest density of wild Sri Lankan leopards, sloth bears, and crocodiles.
+                            </p>
+                        </div>
+                        <button onclick="openModal('Yala National Park', 'Wildlife, Nature & Adventure', 'Famous worldwide for Block 1 safari drives, offering the highest odds of encountering wild leopards along with sloth bears and elephants.', 'Leopard Safaris, Coastal Wilderness, Birding')" class="w-full py-2.5 px-4 bg-white border border-slate-300 hover:bg-sky-600 hover:text-white hover:border-sky-600 text-slate-800 text-xs font-semibold rounded-xl transition-all flex items-center justify-center gap-2">
+                            <span>Explore Highlights</span> <i class="fa-solid fa-arrow-right text-[10px]"></i>
+                        </button>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <section class="py-16 bg-gradient-to-r from-slate-900 via-sky-950 to-slate-900 text-white relative">
+        <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <span class="text-sky-400 text-xs font-bold uppercase tracking-widest block mb-2">Customized Experience</span>
+            <h3 class="font-serif-title text-2xl sm:text-4xl font-bold mb-4">Can’t Decide Which Wonders to Visit?</h3>
+            <p class="text-slate-300 text-base sm:text-lg leading-relaxed max-w-3xl mx-auto mb-8">
+                Every traveler is unique. Let our experienced local team in Kandy combine these destinations into a perfectly balanced private tour itinerary crafted around your schedule.
+            </p>
+            <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
+                <a href="contact.html" class="w-full sm:w-auto px-8 py-3.5 bg-sky-600 hover:bg-sky-500 text-white font-semibold rounded-full shadow-lg transition-all text-sm flex items-center justify-center gap-2">
+                    <i class="fa-solid fa-paper-plane"></i>
+                    <span>Contact Us to Plan</span>
+                </a>
+                <a href="about.html" class="w-full sm:w-auto px-8 py-3.5 bg-white/10 hover:bg-white/20 text-white font-semibold rounded-full border border-white/30 backdrop-blur-md transition-all text-sm flex items-center justify-center gap-2">
+                    <i class="fa-solid fa-circle-info"></i>
+                    <span>Read Our Heritage</span>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <div id="destModal" class="fixed inset-0 z-50 hidden flex items-center justify-center p-4 bg-slate-950/80 backdrop-blur-sm transition-opacity duration-300">
+        <div class="bg-white rounded-3xl max-w-xl w-full p-6 sm:p-8 shadow-2xl border border-slate-200 relative transform transition-all">
+            <!-- Modal Close Button -->
+            <button onclick="closeModal()" class="absolute top-5 right-5 w-9 h-9 bg-slate-100 hover:bg-slate-200 rounded-full flex items-center justify-center text-slate-600 transition-colors" aria-label="Close modal">
+                <i class="fa-solid fa-xmark text-lg"></i>
+            </button>
+
+            <span id="modalCategory" class="text-xs font-bold uppercase tracking-wider text-sky-600 block mb-1">Category</span>
+            <h3 id="modalTitle" class="font-serif-title text-2xl sm:text-3xl font-bold text-slate-900 mb-3">Destination Name</h3>
+            
+            <div class="p-4 bg-slate-50 rounded-2xl border border-slate-200/80 mb-5">
+                <h4 class="text-xs font-bold uppercase tracking-wider text-slate-500 mb-1">Key Experiences & Highlights</h4>
+                <p id="modalHighlights" class="text-sm font-semibold text-slate-800">Highlights</p>
+            </div>
+
+            <p id="modalDesc" class="text-slate-600 text-sm leading-relaxed mb-6">Detailed description goes here.</p>
+
+            <div class="flex items-center gap-3 pt-4 border-t border-slate-100">
+                <a id="modalInquireBtn" href="contact.html" class="flex-1 py-3 bg-sky-600 hover:bg-sky-500 text-white text-center font-semibold text-sm rounded-xl shadow transition-colors">
+                    Inquire About This Location
+                </a>
+                <button onclick="closeModal()" class="px-5 py-3 bg-slate-100 hover:bg-slate-200 text-slate-700 font-semibold text-sm rounded-xl transition-colors">
+                    Close
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <footer class="bg-slate-950 text-slate-300 pt-16 pb-12 border-t border-slate-800 mt-auto">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-10 pb-12 border-b border-slate-800">
+                
+                <!-- Col 1: Brand Info -->
+                <div class="lg:col-span-4 flex flex-col items-start">
+                    <a href="index.html" class="flex items-center gap-3 mb-4">
+                        <div class="w-10 h-10 bg-white/10 rounded-full p-1 flex items-center justify-center border border-white/20">
+                            <img src="Lg.png">
+                        </div>
+                        <span class="text-white font-serif font-bold text-xl tracking-wider">Way2Wonders<span class="text-sky-400">LK</span></span>
+                    </a>
+                    <p class="text-slate-400 text-sm leading-relaxed mb-6 max-w-sm">
+                        A legacy of hospitality. A world of wonders. Bringing together family heritage since 1978 to craft unforgettable journeys across Sri Lanka.
+                    </p>
+                    
+                    <div class="flex items-center gap-2 text-xs text-sky-400 font-medium">
+                        <i class="fa-solid fa-location-dot"></i>
+                        <span>Based in Kandy, Sri Lanka</span>
+                    </div>
+                </div>
+
+                <!-- Col 2: Navigation Links -->
+                <div class="lg:col-span-3">
+                    <h4 class="text-white font-semibold text-sm uppercase tracking-wider mb-4 border-l-2 border-sky-500 pl-2">Quick Navigation</h4>
+                    <ul class="space-y-2.5 text-sm">
+                        <li><a href="index.html" class="hover:text-sky-400 transition-colors flex items-center gap-2"><i class="fa-solid fa-chevron-right text-[10px] text-slate-600"></i> Home</a></li>
+                        <li><a href="about.html" class="hover:text-sky-400 transition-colors flex items-center gap-2"><i class="fa-solid fa-chevron-right text-[10px] text-slate-600"></i> About Us</a></li>
+                        <li><a href="destinations.html" class="hover:text-sky-400 transition-colors flex items-center gap-2"><i class="fa-solid fa-chevron-right text-[10px] text-slate-600"></i> Destinations</a></li>
+                        <li><a href="contact.html" class="hover:text-sky-400 transition-colors flex items-center gap-2"><i class="fa-solid fa-chevron-right text-[10px] text-slate-600"></i> Contact Us</a></li>
+                    </ul>
+                </div>
+
+                <!-- Col 3: Contact & Location Info -->
+                <div class="lg:col-span-3">
+                    <h4 class="text-white font-semibold text-sm uppercase tracking-wider mb-4 border-l-2 border-sky-500 pl-2">Office & Contact</h4>
+                    <ul class="space-y-3 text-sm text-slate-400">
+                        <li class="flex items-start gap-3">
+                            <i class="fa-solid fa-map-pin text-sky-400 mt-1"></i>
+                            <span>Kandy, Central Province, Sri Lanka</span>
+                        </li>
+                        <li class="flex items-center gap-3">
+                            <i class="fa-solid fa-envelope text-sky-400"></i>
+                            <a href="mailto:info@way2wonderslk.com" class="hover:text-white transition-colors">info@way2wonderslk.com</a>
+                        </li>
+                        <li class="flex items-center gap-3">
+                            <i class="fa-solid fa-phone text-sky-400"></i>
+                            <a href="tel:+94775648203" class="hover:text-white transition-colors">+94 (77) 564 8203</a>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Col 4: Social Media Connect -->
+                <div class="lg:col-span-2">
+                    <h4 class="text-white font-semibold text-sm uppercase tracking-wider mb-4 border-l-2 border-sky-500 pl-2">Follow Us</h4>
+                    <p class="text-xs text-slate-400 mb-4">Stay connected with our latest island travel stories:</p>
+                    <div class="flex flex-wrap gap-3">
+                        <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" class="w-10 h-10 rounded-lg bg-slate-800 hover:bg-sky-600 text-white flex items-center justify-center transition-all duration-300 shadow" aria-label="Instagram">
+                            <i class="fa-brands fa-instagram text-lg"></i>
+                        </a>
+                        <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" class="w-10 h-10 rounded-lg bg-slate-800 hover:bg-sky-600 text-white flex items-center justify-center transition-all duration-300 shadow" aria-label="Facebook">
+                            <i class="fa-brands fa-facebook-f text-lg"></i>
+                        </a>
+                        <a href="https://tripadvisor.com" target="_blank" rel="noopener noreferrer" class="w-10 h-10 rounded-lg bg-slate-800 hover:bg-sky-600 text-white flex items-center justify-center transition-all duration-300 shadow" aria-label="TripAdvisor">
+                            <i class="fa-brands fa-tripadvisor text-lg"></i>
+                        </a>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="pt-8 flex flex-col sm:flex-row items-center justify-between text-xs text-slate-500 gap-4">
+                <p>&copy; <span id="currentYear">2026</span> Way2Wonders LK. All rights reserved.</p>
+                <div class="flex items-center gap-6">
+                    <span class="inline-flex items-center gap-1.5 text-slate-400">
+                        <i class="fa-solid fa-lock text-sky-500 text-[10px]"></i> Secure Verified Site
+                    </span>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            /* 1. Mobile Menu Toggle */
+            const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+            const mobileMenu = document.getElementById('mobileMenu');
+
+            if (mobileMenuBtn && mobileMenu) {
+                mobileMenuBtn.addEventListener('click', function() {
+                    const expanded = mobileMenuBtn.getAttribute('aria-expanded') === 'true';
+                    mobileMenuBtn.setAttribute('aria-expanded', !expanded);
+                    mobileMenu.classList.toggle('hidden');
+                });
+            }
+
+            /* 2. Glassmorphism Sticky Navbar on Scroll */
+            const nav = document.getElementById('mainNav');
+            window.addEventListener('scroll', function() {
+                if (window.scrollY > 40) {
+                    nav.classList.add('nav-scrolled');
+                } else {
+                    nav.classList.remove('nav-scrolled');
+                }
+            });
+
+            /* 3. Update Dynamic Copyright Year */
+            const yearElem = document.getElementById('currentYear');
+            if (yearElem) {
+                yearElem.textContent = new Date().getFullYear();
+            }
+
+            /* 4. External Link Security Enforcement */
+            const externalLinks = document.querySelectorAll('a[target="_blank"]');
+            externalLinks.forEach(function(link) {
+                link.setAttribute('rel', 'noopener noreferrer');
+            });
+        });
+
+        /* 5. Horizontal Carousel Scroll Control Function */
+        function scrollCarousel(trackId, direction) {
+            const track = document.getElementById(trackId);
+            if (!track) return;
+            const scrollAmount = track.clientWidth * 0.75 * direction;
+            track.scrollBy({
+                left: scrollAmount,
+                behavior: 'smooth'
+            });
+        }
+
+        /* 6. Smooth Scroll To Category Section */
+        function scrollToCategory(categoryId) {
+            const element = document.getElementById(categoryId);
+            if (element) {
+                element.scrollIntoView({ behavior: 'smooth' });
+            }
+        }
+
+        /* 7. Destination Detail Modal Logic */
+        const modal = document.getElementById('destModal');
+        const modalTitle = document.getElementById('modalTitle');
+        const modalCategory = document.getElementById('modalCategory');
+        const modalDesc = document.getElementById('modalDesc');
+        const modalHighlights = document.getElementById('modalHighlights');
+        const modalInquireBtn = document.getElementById('modalInquireBtn');
+
+        function openModal(title, category, desc, highlights) {
+            if (!modal) return;
+            modalTitle.textContent = title;
+            modalCategory.textContent = category;
+            modalDesc.textContent = desc;
+            modalHighlights.textContent = highlights;
+            modalInquireBtn.href = 'contact.html?destination=' + encodeURIComponent(title);
+
+            modal.classList.remove('hidden');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeModal() {
+            if (!modal) return;
+            modal.classList.add('hidden');
+            document.body.style.overflow = 'auto';
+        }
+
+        // Close modal when clicking background dark backdrop
+        if (modal) {
+            modal.addEventListener('click', function(e) {
+                if (e.target === modal) {
+                    closeModal();
+                }
+            });
+        }
+    </script>
+</body>
+</html>
