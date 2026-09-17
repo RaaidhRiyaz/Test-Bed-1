@@ -1,0 +1,635 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Contact Way2Wonders LK - Get in touch with our travel concierge in Kandy, Sri Lanka. Book custom tours, ask questions, or chat on WhatsApp.">
+    <meta name="theme-color" content="#0F172A">
+    <!-- Security Header simulation for static site environment -->
+    <meta http-equiv="X-Content-Type-Options" content="nosniff">
+    <meta http-equiv="X-Frame-Options" content="SAMEORIGIN">
+    
+    <title>Contact Us | Way2Wonders LK</title>
+
+    <!-- Google Fonts: Serif for luxury headings, Sans-Serif for body -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- FontAwesome Icons (No emojis used) -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            50: '#f0f7ff',
+                            100: '#e0effe',
+                            500: '#0284c7',
+                            600: '#0369a1',
+                            800: '#075985',
+                            900: '#0f172a',
+                            navy: '#0b192c',
+                            accent: '#1e40af',
+                            cyan: '#0284c7'
+                        }
+                    },
+                    fontFamily: {
+                        serif: ['"Playfair Display"', 'Georgia', 'serif'],
+                        sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            color: #1e293b;
+            background-color: #ffffff;
+        }
+
+        .font-serif-title {
+            font-family: 'Playfair Display', Georgia, serif;
+        }
+
+        /* Glassmorphism scroll navbar effect */
+        .nav-scrolled {
+            background-color: rgba(15, 23, 42, 0.95) !important;
+            backdrop-filter: blur(12px);
+            box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.2);
+            padding-top: 0.75rem !important;
+            padding-bottom: 0.75rem !important;
+        }
+
+        /* Text glow effect */
+        .text-glow {
+            text-shadow: 0 2px 10px rgba(0,0,0,0.4);
+        }
+
+        /* Form Input focus states */
+        .form-input-focus {
+            transition: all 0.2s ease-in-out;
+        }
+        .form-input-focus:focus {
+            border-color: #0284c7;
+            box-shadow: 0 0 0 3px rgba(2, 132, 199, 0.15);
+            outline: none;
+        }
+    </style>
+</head>
+<body class="antialiased bg-slate-50 text-slate-800 flex flex-col min-h-screen">
+
+    <header id="mainNav" class="fixed top-0 left-0 right-0 z-50 transition-all duration-300 py-5 bg-gradient-to-b from-slate-900/90 to-transparent">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between">
+                
+                <!-- Logo Left -->
+                <a href="index.html" class="flex items-center gap-3 group focus:outline-none focus:ring-2 focus:ring-blue-400 rounded-lg p-1" aria-label="Way2Wonders LK Home">
+                    <div class="w-14 h-14 sm:w-16 sm:h-16 bg-white/10 backdrop-blur-md rounded-full p-1.5 border border-white/20 shadow-md transition-transform duration-300 group-hover:scale-105 flex items-center justify-center">
+                        <img src="Lg.png" alt="Way2Wonders LK Logo" class="max-h-full max-w-full object-contain" onerror="this.onerror=null; this.parentElement.innerHTML='<i class=\'fa-solid fa-compass text-sky-400 text-2xl\'></i>';">
+                    </div>
+                    <div class="flex flex-col">
+                        <span class="text-white font-serif font-bold text-lg sm:text-xl tracking-wider leading-tight">Way2Wonders<span class="text-sky-400">LK</span></span>
+                        <span class="text-[10px] sm:text-xs text-slate-300 font-light tracking-widest uppercase">Travel & Tourism</span>
+                    </div>
+                </a>
+
+                <!-- Nav Links Right (Desktop) -->
+                <nav class="hidden md:flex items-center space-x-8" aria-label="Main Navigation">
+                    <a href="index.html" class="text-white/90 hover:text-sky-300 font-medium text-sm tracking-wide transition-colors duration-200 pb-1">Home</a>
+                    <a href="about.html" class="text-white/90 hover:text-sky-300 font-medium text-sm tracking-wide transition-colors duration-200 pb-1">About</a>
+                    <a href="destinations.html" class="text-white/90 hover:text-sky-300 font-medium text-sm tracking-wide transition-colors duration-200 pb-1">Destinations</a>
+                    <a href="contact.html" class="text-sky-400 font-semibold text-sm tracking-wide transition-colors duration-200 border-b-2 border-sky-400 pb-1" aria-current="page">Contact</a>
+                </nav>
+
+                <!-- Mobile Menu Button -->
+                <div class="md:hidden flex items-center">
+                    <button id="mobileMenuBtn" type="button" class="text-white hover:text-sky-400 p-2 rounded-lg focus:outline-none focus:ring-2 focus:ring-sky-400" aria-expanded="false" aria-label="Toggle Navigation Menu">
+                        <i class="fa-solid fa-bars text-2xl"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mobile Drawer Menu (Strictly NO Inquire Now button) -->
+        <div id="mobileMenu" class="hidden md:hidden bg-slate-900/95 backdrop-blur-xl border-b border-slate-800 transition-all duration-300">
+            <div class="px-4 pt-3 pb-6 space-y-3">
+                <a href="index.html" class="block px-3 py-2 rounded-md text-base font-medium text-white hover:text-sky-300 hover:bg-slate-800/40">Home</a>
+                <a href="about.html" class="block px-3 py-2 rounded-md text-base font-medium text-white hover:text-sky-300 hover:bg-slate-800/40">About</a>
+                <a href="destinations.html" class="block px-3 py-2 rounded-md text-base font-medium text-white hover:text-sky-300 hover:bg-slate-800/40">Destinations</a>
+                <a href="contact.html" class="block px-3 py-2 rounded-md text-base font-medium text-sky-400 bg-slate-800/60" aria-current="page">Contact</a>
+            </div>
+        </div>
+    </header>
+
+    <section class="relative pt-32 pb-20 md:pt-40 md:pb-28 bg-slate-900 text-white overflow-hidden">
+        <div class="absolute inset-0 z-0 opacity-40">
+            <img src="Hero.png" 
+                 alt="Kandy City Sri Lanka Overview" 
+                 class="w-full h-full object-cover object-center"
+                 onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1546708973-b339540b5162?auto=format&fit=crop&w=1600&q=80';" />
+            <div class="absolute inset-0 bg-gradient-to-t from-slate-900 via-slate-900/80 to-slate-950"></div>
+        </div>
+
+        <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-sky-500/10 border border-sky-400/30 text-sky-300 text-xs sm:text-sm font-medium tracking-widest uppercase mb-4 backdrop-blur-md">
+                <i class="fa-solid fa-headset text-sky-400"></i> Local Tour Experts in Kandy
+            </div>
+            <h1 class="font-serif-title text-4xl sm:text-5xl md:text-6xl font-bold tracking-tight mb-4 text-glow">
+                Get in Touch With Us
+            </h1>
+            <p class="text-slate-300 text-base sm:text-lg max-w-2xl mx-auto font-light leading-relaxed">
+                Whether you have questions, need a custom travel itinerary, or want to discuss tour packages, our family legacy team is here to assist you every step of the way.
+            </p>
+        </div>
+    </section>
+
+    <main class="py-16 md:py-24 bg-slate-50 flex-grow">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12">
+                
+                <!-- LEFT COLUMN: Formspree Inquiry & Booking Form (7 Cols) -->
+                <div class="lg:col-span-7">
+                    <div class="bg-white rounded-3xl p-6 sm:p-10 shadow-xl border border-slate-200/80 relative">
+                        
+                        <div class="mb-8">
+                            <span class="text-xs uppercase font-bold tracking-widest text-sky-600 block mb-1">
+                                Send A Direct Message
+                            </span>
+                            <h2 class="font-serif-title text-2xl sm:text-3xl font-bold text-slate-900">
+                                Travel Inquiry Form
+                            </h2>
+                            <p class="text-slate-500 text-xs sm:text-sm mt-1">
+                                Fill out your details below and our team will respond promptly.
+                            </p>
+                        </div>
+
+                        <!-- Client Validation Status Message Box -->
+                        <div id="formStatus" class="hidden mb-6 p-4 rounded-xl text-sm font-medium transition-all" role="alert"></div>
+
+                        <!-- FORMSPREE FORM -->
+                        <!-- REPLACE "YOUR_FORMSPREE_ENDPOINT_ID" with your Formspree ID e.g. https://formspree.io/f/xknkyoky -->
+                        <form id="contactForm" 
+                              action="https://formspree.io/f/xknkyoky" 
+                              method="POST" 
+                              class="space-y-6">
+
+                            <!-- Anti-Spam Honeypot Field (Hidden from normal users) -->
+                            <input type="text" name="_gotcha" tabIndex="-1" autocomplete="off" class="hidden" style="display:none !important;" />
+
+                            <!-- Custom Email Subject line header for Formspree -->
+                            <input type="hidden" name="_subject" value="New Travel Inquiry - Way2Wonders LK Website" />
+
+                            <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                                <!-- 1. Name of booking person -->
+                                <div class="sm:col-span-2">
+                                    <label for="booking_name" class="block text-xs font-semibold uppercase tracking-wider text-slate-700 mb-2">
+                                        Name of Booking Person <span class="text-rose-500">*</span>
+                                    </label>
+                                    <div class="relative">
+                                        <div class="absolute inset-y-0 left-0 pl-3.5 flex items-center pointer-events-none text-slate-400">
+                                            <i class="fa-solid fa-user text-sm"></i>
+                                        </div>
+                                        <input type="text" 
+                                               id="booking_name" 
+                                               name="Name of Booking Person" 
+                                               required 
+                                               placeholder="e.g. John Doe" 
+                                               class="w-full pl-10 pr-4 py-3 bg-slate-50 border border-slate-300 rounded-xl text-slate-900 text-sm form-input-focus" />
+                                    </div>
+                                </div>
+
+                                <!-- 2. Email -->
+                                <div class="col-span-1">
+                                    <label for="email" class="block text-xs font-semibold uppercase tracking-wider text-slate-700 mb-2">
+                                        Email Address <span class="text-rose-500">*</span>
+                                    </label>
+                                    <div class="relative">
+                                        <div class="absolute inset-y-0 left-0 pl-3.5 flex items-center pointer-events-none text-slate-400">
+                                            <i class="fa-solid fa-envelope text-sm"></i>
+                                        </div>
+                                        <input type="email" 
+                                               id="email" 
+                                               name="Email" 
+                                               required 
+                                               placeholder="john@example.com" 
+                                               class="w-full pl-10 pr-4 py-3 bg-slate-50 border border-slate-300 rounded-xl text-slate-900 text-sm form-input-focus" />
+                                    </div>
+                                </div>
+
+                                <!-- 3. Number of people -->
+                                <div class="col-span-1">
+                                    <label for="num_people" class="block text-xs font-semibold uppercase tracking-wider text-slate-700 mb-2">
+                                        Number of People <span class="text-rose-500">*</span>
+                                    </label>
+                                    <div class="relative">
+                                        <div class="absolute inset-y-0 left-0 pl-3.5 flex items-center pointer-events-none text-slate-400">
+                                            <i class="fa-solid fa-users text-sm"></i>
+                                        </div>
+                                        <input type="number" 
+                                               id="num_people" 
+                                               name="Number of People" 
+                                               min="1" 
+                                               max="100" 
+                                               required 
+                                               placeholder="e.g. 2 Adults, 1 Child" 
+                                               class="w-full pl-10 pr-4 py-3 bg-slate-50 border border-slate-300 rounded-xl text-slate-900 text-sm form-input-focus" />
+                                    </div>
+                                </div>
+
+                                <!-- 4. Contact (Phone / WhatsApp) -->
+                                <div class="sm:col-span-2">
+                                    <label for="contact_number" class="block text-xs font-semibold uppercase tracking-wider text-slate-700 mb-2">
+                                        Contact Number / WhatsApp <span class="text-rose-500">*</span>
+                                    </label>
+                                    <div class="relative">
+                                        <div class="absolute inset-y-0 left-0 pl-3.5 flex items-center pointer-events-none text-slate-400">
+                                            <i class="fa-solid fa-phone text-sm"></i>
+                                        </div>
+                                        <input type="tel" 
+                                               id="contact_number" 
+                                               name="Contact Number" 
+                                               required 
+                                               placeholder="+1 234 567 8900 (include country code)" 
+                                               class="w-full pl-10 pr-4 py-3 bg-slate-50 border border-slate-300 rounded-xl text-slate-900 text-sm form-input-focus" />
+                                    </div>
+                                </div>
+
+                                <!-- 5. Questions / Message -->
+                                <div class="sm:col-span-2">
+                                    <label for="questions" class="block text-xs font-semibold uppercase tracking-wider text-slate-700 mb-2">
+                                        Questions & Special Requests <span class="text-rose-500">*</span>
+                                    </label>
+                                    <div class="relative">
+                                        <textarea id="questions" 
+                                                  name="Questions and Inquiry Details" 
+                                                  rows="5" 
+                                                  required 
+                                                  placeholder="Tell us about your preferred travel dates, destinations of interest, or any specific questions..." 
+                                                  class="w-full p-4 bg-slate-50 border border-slate-300 rounded-xl text-slate-900 text-sm form-input-focus"></textarea>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Submit Button -->
+                            <div class="pt-2">
+                                <button type="submit" 
+                                        id="submitBtn"
+                                        class="w-full py-4 px-6 bg-sky-600 hover:bg-sky-500 text-white font-semibold rounded-xl shadow-lg shadow-sky-600/20 hover:shadow-sky-500/30 transition-all duration-300 flex items-center justify-center gap-3 group">
+                                    <span>Send Message</span>
+                                    <i class="fa-solid fa-paper-plane text-sm group-hover:translate-x-1 transition-transform"></i>
+                                </button>
+                            </div>
+
+                            <p class="text-center text-[11px] text-slate-400 flex items-center justify-center gap-1.5 mt-4">
+                                <i class="fa-solid fa-shield-halved text-sky-500"></i> Your details are encrypted & strictly confidential.
+                            </p>
+
+                        </form>
+                    </div>
+                </div>
+
+                <!-- RIGHT COLUMN: Quick Direct Contacts & Social Channels (5 Cols) -->
+                <div class="lg:col-span-5 flex flex-col justify-between space-y-6">
+                    
+                    <!-- WhatsApp Quick Action Card -->
+                    <div class="bg-gradient-to-br from-emerald-900 via-emerald-800 to-slate-900 rounded-3xl p-6 sm:p-8 text-white shadow-xl border border-emerald-700/50 relative overflow-hidden">
+                        <div class="absolute -right-6 -bottom-6 w-32 h-32 bg-emerald-500/10 rounded-full blur-xl pointer-events-none"></div>
+                        <div class="flex items-center gap-4 mb-4">
+                            <div class="w-14 h-14 rounded-2xl bg-emerald-500/20 border border-emerald-400/30 flex items-center justify-center text-emerald-300 text-2xl shrink-0">
+                                <i class="fa-brands fa-whatsapp"></i>
+                            </div>
+                            <div>
+                                <span class="text-[11px] uppercase font-bold tracking-widest text-emerald-300">Instant Chat</span>
+                                <h3 class="font-serif-title text-xl font-bold">WhatsApp Concierge</h3>
+                            </div>
+                        </div>
+                        <p class="text-emerald-100/90 text-xs sm:text-sm leading-relaxed mb-6">
+                            Prefer quick messaging? Connect directly with our travel manager on WhatsApp for immediate responses.
+                        </p>
+                        <a href="https://wa.me/94775648203?text=Hello%20Way2Wonders%20LK%2C%20I%20would%20like%20to%20inquire%20about%20a%20tour." 
+                           target="_blank" 
+                           rel="noopener noreferrer" 
+                           class="w-full py-3.5 px-6 bg-emerald-500 hover:bg-emerald-400 text-slate-950 font-bold rounded-xl shadow-lg transition-all flex items-center justify-center gap-2 text-sm">
+                            <i class="fa-brands fa-whatsapp text-lg"></i>
+                            <span>Chat on WhatsApp</span>
+                        </a>
+                    </div>
+
+                    <!-- Direct Contact Channels Card -->
+                    <div class="bg-white rounded-3xl p-6 sm:p-8 shadow-xl border border-slate-200/80">
+                        <h3 class="font-serif-title text-xl font-bold text-slate-900 mb-6 pb-3 border-b border-slate-100">
+                            Direct Contact Details
+                        </h3>
+
+                        <div class="space-y-6">
+                            <!-- Location -->
+                            <div class="flex items-start gap-4">
+                                <div class="w-10 h-10 rounded-xl bg-sky-100 text-sky-700 flex items-center justify-center shrink-0">
+                                    <i class="fa-solid fa-location-dot"></i>
+                                </div>
+                                <div>
+                                    <h4 class="text-xs font-semibold text-slate-400 uppercase tracking-wider">Our Location</h4>
+                                    <p class="text-sm font-semibold text-slate-900 mt-0.5">Kandy, Central Province, Sri Lanka</p>
+                                    <p class="text-xs text-slate-500">Cultural & Heritage Capital</p>
+                                </div>
+                            </div>
+
+                            <!-- Phone -->
+                            <div class="flex items-start gap-4">
+                                <div class="w-10 h-10 rounded-xl bg-sky-100 text-sky-700 flex items-center justify-center shrink-0">
+                                    <i class="fa-solid fa-phone"></i>
+                                </div>
+                                <div>
+                                    <h4 class="text-xs font-semibold text-slate-400 uppercase tracking-wider">Call Us Directly</h4>
+                                    <a href="tel:+94775648203" class="text-sm font-semibold text-slate-900 hover:text-sky-600 transition-colors mt-0.5 block">
+                                        +94 (77) 564 8203
+                                    </a>
+                                    <p class="text-xs text-slate-500">Mon - Sun: 8:00 AM - 8:00 PM IST</p>
+                                </div>
+                            </div>
+
+                            <!-- Email -->
+                            <div class="flex items-start gap-4">
+                                <div class="w-10 h-10 rounded-xl bg-sky-100 text-sky-700 flex items-center justify-center shrink-0">
+                                    <i class="fa-solid fa-envelope"></i>
+                                </div>
+                                <div>
+                                    <h4 class="text-xs font-semibold text-slate-400 uppercase tracking-wider">Email Inquiry</h4>
+                                    <a href="mailto:info@way2wonderslk.com" class="text-sm font-semibold text-slate-900 hover:text-sky-600 transition-colors mt-0.5 block">
+                                        info@way2wonderslk.com
+                                    </a>
+                                    <p class="text-xs text-slate-500">24h response guarantee</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Social Media Connection Card -->
+                    <div class="bg-slate-900 rounded-3xl p-6 sm:p-8 text-white shadow-xl border border-slate-800">
+                        <span class="text-[11px] uppercase font-bold tracking-widest text-sky-400 block mb-1">
+                            Connect & Follow
+                        </span>
+                        <h3 class="font-serif-title text-xl font-bold mb-4">Our Social Media</h3>
+                        <p class="text-slate-400 text-xs sm:text-sm leading-relaxed mb-6">
+                            Stay inspired with photo updates, hidden island gems, and traveler stories:
+                        </p>
+                        <div class="grid grid-cols-3 gap-3">
+                            <a href="https://instagram.com" 
+                               target="_blank" 
+                               rel="noopener noreferrer" 
+                               class="flex flex-col items-center justify-center p-3 rounded-2xl bg-slate-800 hover:bg-sky-600 text-white transition-all duration-300 border border-slate-700/60 group">
+                                <i class="fa-brands fa-instagram text-xl mb-1 group-hover:scale-110 transition-transform"></i>
+                                <span class="text-[11px] font-medium">Instagram</span>
+                            </a>
+                            <a href="https://facebook.com" 
+                               target="_blank" 
+                               rel="noopener noreferrer" 
+                               class="flex flex-col items-center justify-center p-3 rounded-2xl bg-slate-800 hover:bg-sky-600 text-white transition-all duration-300 border border-slate-700/60 group">
+                                <i class="fa-brands fa-facebook-f text-xl mb-1 group-hover:scale-110 transition-transform"></i>
+                                <span class="text-[11px] font-medium">Facebook</span>
+                            </a>
+                            <a href="https://tripadvisor.com" 
+                               target="_blank" 
+                               rel="noopener noreferrer" 
+                               class="flex flex-col items-center justify-center p-3 rounded-2xl bg-slate-800 hover:bg-sky-600 text-white transition-all duration-300 border border-slate-700/60 group">
+                                <i class="fa-brands fa-tripadvisor text-xl mb-1 group-hover:scale-110 transition-transform"></i>
+                                <span class="text-[11px] font-medium">TripAdvisor</span>
+                            </a>
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+
+            <!-- MAP SECTION: Our Location in Kandy -->
+            <div class="mt-16 sm:mt-24">
+                <div class="bg-white rounded-3xl p-4 sm:p-6 shadow-xl border border-slate-200/80">
+                    <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-6 px-2">
+                        <div>
+                            <span class="text-xs uppercase font-bold tracking-widest text-sky-600 block mb-1">
+                                <i class="fa-solid fa-map-pin mr-1"></i> Island Base
+                            </span>
+                            <h3 class="font-serif-title text-2xl font-bold text-slate-900">
+                                Our Location in Kandy, Sri Lanka
+                            </h3>
+                        </div>
+                        <a href="https://maps.google.com/?q=Kandy,+Sri+Lanka" 
+                           target="_blank" 
+                           rel="noopener noreferrer" 
+                           class="inline-flex items-center gap-2 px-4 py-2 bg-slate-100 hover:bg-slate-200 text-slate-800 font-semibold rounded-xl text-xs transition-colors self-start sm:self-auto">
+                            <i class="fa-solid fa-diamond-turn-right text-sky-600"></i>
+                            <span>Open in Google Maps</span>
+                        </a>
+                    </div>
+
+                    <!-- Embedded Interactive Google Map of Kandy -->
+                    <div class="w-full h-[380px] sm:h-[450px] rounded-2xl overflow-hidden border border-slate-200 relative bg-slate-100">
+                        <iframe title="Map of Kandy, Sri Lanka"
+                                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d63325.22849887766!2d80.5960417!3d7.2945439!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3ae3662d6b43178b%3A0x4624a17720f00f0!2sKandy%2C%20Sri%20Lanka!5e0!3m2!1sen!2s!4v1700000000000!5m2!1sen!2s" 
+                                class="w-full h-full border-0" 
+                                allowfullscreen="" 
+                                loading="lazy" 
+                                referrerpolicy="no-referrer-when-downgrade">
+                        </iframe>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </main>
+
+    <!-- FOOTER (Identical UI style, active contact page state) -->
+    <footer class="bg-slate-950 text-slate-300 pt-16 pb-12 border-t border-slate-800 mt-auto">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-10 pb-12 border-b border-slate-800">
+                
+                <!-- Col 1: Brand Info -->
+                <div class="lg:col-span-4 flex flex-col items-start">
+                    <a href="index.html" class="flex items-center gap-3 mb-4">
+                        <div class="w-10 h-10 bg-white/10 rounded-full p-1 flex items-center justify-center border border-white/20">
+                            <img src="Lg.png" alt="Way2Wonders LK Logo" class="max-h-full max-w-full object-contain" onerror="this.onerror=null; this.parentElement.innerHTML='<i class=\'fa-solid fa-compass text-sky-400\'></i>';">
+                        </div>
+                        <span class="text-white font-serif font-bold text-xl tracking-wider">Way2Wonders<span class="text-sky-400">LK</span></span>
+                    </a>
+                    <p class="text-slate-400 text-sm leading-relaxed mb-6 max-w-sm">
+                        A legacy of hospitality. A world of wonders. Bringing together family heritage since 1978 to craft unforgettable journeys across Sri Lanka.
+                    </p>
+                    
+                    <div class="flex items-center gap-2 text-xs text-sky-400 font-medium">
+                        <i class="fa-solid fa-location-dot"></i>
+                        <span>Based in Kandy, Sri Lanka</span>
+                    </div>
+                </div>
+
+                <!-- Col 2: Navigation Links -->
+                <div class="lg:col-span-3">
+                    <h4 class="text-white font-semibold text-sm uppercase tracking-wider mb-4 border-l-2 border-sky-500 pl-2">Quick Navigation</h4>
+                    <ul class="space-y-2.5 text-sm">
+                        <li><a href="index.html" class="hover:text-sky-400 transition-colors flex items-center gap-2"><i class="fa-solid fa-chevron-right text-[10px] text-slate-600"></i> Home</a></li>
+                        <li><a href="about.html" class="hover:text-sky-400 transition-colors flex items-center gap-2"><i class="fa-solid fa-chevron-right text-[10px] text-slate-600"></i> About Us</a></li>
+                        <li><a href="destinations.html" class="hover:text-sky-400 transition-colors flex items-center gap-2"><i class="fa-solid fa-chevron-right text-[10px] text-slate-600"></i> Destinations</a></li>
+                        <li><a href="contact.html" class="text-sky-400 transition-colors flex items-center gap-2"><i class="fa-solid fa-chevron-right text-[10px] text-sky-400"></i> Contact Us</a></li>
+                    </ul>
+                </div>
+
+                <!-- Col 3: Contact & Location Info -->
+                <div class="lg:col-span-3">
+                    <h4 class="text-white font-semibold text-sm uppercase tracking-wider mb-4 border-l-2 border-sky-500 pl-2">Office & Contact</h4>
+                    <ul class="space-y-3 text-sm text-slate-400">
+                        <li class="flex items-start gap-3">
+                            <i class="fa-solid fa-map-pin text-sky-400 mt-1"></i>
+                            <span>Kandy, Central Province, Sri Lanka</span>
+                        </li>
+                        <li class="flex items-center gap-3">
+                            <i class="fa-solid fa-envelope text-sky-400"></i>
+                            <a href="mailto:info@way2wonderslk.com" class="hover:text-white transition-colors">info@way2wonderslk.com</a>
+                        </li>
+                        <li class="flex items-center gap-3">
+                            <i class="fa-solid fa-phone text-sky-400"></i>
+                            <a href="tel:+94775648203" class="hover:text-white transition-colors">+94 (77) 564 8203</a>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Col 4: Social Media Connect -->
+                <div class="lg:col-span-2">
+                    <h4 class="text-white font-semibold text-sm uppercase tracking-wider mb-4 border-l-2 border-sky-500 pl-2">Follow Us</h4>
+                    <p class="text-xs text-slate-400 mb-4">Stay connected with our latest island travel stories:</p>
+                    <div class="flex flex-wrap gap-3">
+                        <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" class="w-10 h-10 rounded-lg bg-slate-800 hover:bg-sky-600 text-white flex items-center justify-center transition-all duration-300 shadow" aria-label="Instagram">
+                            <i class="fa-brands fa-instagram text-lg"></i>
+                        </a>
+                        <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" class="w-10 h-10 rounded-lg bg-slate-800 hover:bg-sky-600 text-white flex items-center justify-center transition-all duration-300 shadow" aria-label="Facebook">
+                            <i class="fa-brands fa-facebook-f text-lg"></i>
+                        </a>
+                        <a href="https://tripadvisor.com" target="_blank" rel="noopener noreferrer" class="w-10 h-10 rounded-lg bg-slate-800 hover:bg-sky-600 text-white flex items-center justify-center transition-all duration-300 shadow" aria-label="TripAdvisor">
+                            <i class="fa-brands fa-tripadvisor text-lg"></i>
+                        </a>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- Bottom Copyright & Security Safeguards -->
+            <div class="pt-8 flex flex-col sm:flex-row items-center justify-between text-xs text-slate-500 gap-4">
+                <p>&copy; <span id="currentYear">2026</span> Way2Wonders LK. All rights reserved.</p>
+                <div class="flex items-center gap-6">
+                    <span class="inline-flex items-center gap-1.5 text-slate-400">
+                        <i class="fa-solid fa-lock text-sky-500 text-[10px]"></i> Secure Formspree Submission Protection
+                    </span>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            /* 1. Mobile Menu Toggle */
+            const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+            const mobileMenu = document.getElementById('mobileMenu');
+
+            if (mobileMenuBtn && mobileMenu) {
+                mobileMenuBtn.addEventListener('click', function() {
+                    const expanded = mobileMenuBtn.getAttribute('aria-expanded') === 'true';
+                    mobileMenuBtn.setAttribute('aria-expanded', !expanded);
+                    mobileMenu.classList.toggle('hidden');
+                });
+            }
+
+            /* 2. Navbar Blend and Scroll Effect */
+            const nav = document.getElementById('mainNav');
+            window.addEventListener('scroll', function() {
+                if (window.scrollY > 50) {
+                    nav.classList.add('nav-scrolled');
+                } else {
+                    nav.classList.remove('nav-scrolled');
+                }
+            });
+
+            /* 3. Dynamic Formspree AJAX Submission Handler for smooth UX */
+            const form = document.getElementById('contactForm');
+            const formStatus = document.getElementById('formStatus');
+            const submitBtn = document.getElementById('submitBtn');
+
+            if (form) {
+                form.addEventListener('submit', async function(event) {
+                    event.preventDefault();
+
+                    // Client validation
+                    const name = document.getElementById('booking_name').value.trim();
+                    const email = document.getElementById('email').value.trim();
+                    const numPeople = document.getElementById('num_people').value;
+                    const contactNumber = document.getElementById('contact_number').value.trim();
+                    const questions = document.getElementById('questions').value.trim();
+
+                    if (!name || !email || !numPeople || !contactNumber || !questions) {
+                        showStatus('Please fill in all required fields.', 'bg-rose-100 text-rose-800 border border-rose-200');
+                        return;
+                    }
+
+                    // UI Loading state
+                    submitBtn.disabled = true;
+                    submitBtn.innerHTML = '<i class="fa-solid fa-circle-notch fa-spin"></i> Sending message...';
+                    
+                    try {
+                        const formData = new FormData(form);
+                        const response = await fetch(form.action, {
+                            method: form.method,
+                            body: formData,
+                            headers: {
+                                'Accept': 'application/json'
+                            }
+                        });
+
+                        if (response.ok) {
+                            showStatus('Thank you! Your message has been submitted successfully. We will get back to you shortly.', 'bg-emerald-100 text-emerald-800 border border-emerald-200');
+                            form.reset();
+                        } else {
+                            const data = await response.json();
+                            if (Object.hasOwn(data, 'errors')) {
+                                showStatus(data.errors.map(error => error.message).join(', '), 'bg-rose-100 text-rose-800 border border-rose-200');
+                            } else {
+                                showStatus('Oops! There was a problem submitting your form. Please try again or contact us via WhatsApp.', 'bg-amber-100 text-amber-800 border border-amber-200');
+                            }
+                        }
+                    } catch (error) {
+                        showStatus('Oops! Network error occurred. Please check your internet connection or try messaging via WhatsApp.', 'bg-rose-100 text-rose-800 border border-rose-200');
+                    } finally {
+                        submitBtn.disabled = false;
+                        submitBtn.innerHTML = '<span>Send Message</span> <i class="fa-solid fa-paper-plane text-sm"></i>';
+                    }
+                });
+            }
+
+            function showStatus(message, bgClasses) {
+                formStatus.className = 'mb-6 p-4 rounded-xl text-sm font-medium transition-all ' + bgClasses;
+                formStatus.textContent = message;
+                formStatus.classList.remove('hidden');
+                formStatus.scrollIntoView({ behavior: 'smooth', block: 'center' });
+            }
+
+            /* 4. Security Feature: Enforce rel="noopener noreferrer" on all external links */
+            const links = document.querySelectorAll('a[target="_blank"]');
+            links.forEach(function(link) {
+                link.setAttribute('rel', 'noopener noreferrer');
+            });
+
+            /* 5. Update Dynamic Copyright Year */
+            const yearElem = document.getElementById('currentYear');
+            if (yearElem) {
+                yearElem.textContent = new Date().getFullYear();
+            }
+        });
+    </script>
+</body>
+</html>

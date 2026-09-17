@@ -1,0 +1,561 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Way2Wonders LK - A legacy of hospitality. A world of wonders. Premier travel agency based in Kandy, Sri Lanka.">
+    <meta name="theme-color" content="#0F172A">
+    <!-- Security Header simulation for static sites -->
+    <meta http-equiv="X-Content-Type-Options" content="nosniff">
+    <meta http-equiv="X-Frame-Options" content="SAMEORIGIN">
+    
+    <title>Way2Wonders LK</title>
+
+    <!-- Google Fonts: Serif for luxury headings, Sans-Serif for body -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- FontAwesome Icons (No emojis used) -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            50: '#f0f7ff',
+                            100: '#e0effe',
+                            500: '#0284c7',
+                            600: '#0369a1',
+                            800: '#075985',
+                            900: '#0f172a',
+                            navy: '#0b192c',
+                            accent: '#1e40af',
+                            cyan: '#0284c7'
+                        }
+                    },
+                    fontFamily: {
+                        serif: ['"Playfair Display"', 'Georgia', 'serif'],
+                        sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            color: #1e293b;
+            background-color: #ffffff;
+        }
+
+        .font-serif-title {
+            font-family: 'Playfair Display', Georgia, serif;
+        }
+
+        /* Glassmorphism scroll navbar effect */
+        .nav-scrolled {
+            background-color: rgba(15, 23, 42, 0.95) !important;
+            backdrop-filter: blur(12px);
+            box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.2);
+            padding-top: 0.75rem !important;
+            padding-bottom: 0.75rem !important;
+        }
+
+        /* Custom subtle hover zoom for destination cards */
+        .card-zoom-img {
+            transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .card-container:hover .card-zoom-img {
+            transform: scale(1.08);
+        }
+
+        /* Text glow effect */
+        .text-glow {
+            text-shadow: 0 2px 10px rgba(0,0,0,0.4);
+        }
+    </style>
+</head>
+<body class="antialiased bg-white text-slate-800 flex flex-col min-h-screen">
+
+    <header id="mainNav" class="fixed top-0 left-0 right-0 z-50 transition-all duration-300 py-5 bg-gradient-to-b from-slate-900/80 to-transparent">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between">
+                
+                <!-- Logo Left -->
+                <a href="index.html" class="flex items-center gap-3 group focus:outline-none focus:ring-2 focus:ring-blue-400 rounded-lg p-1" aria-label="Way2Wonders LK Home">
+                    <div class="w-20 h-20 bg-white/10 backdrop-blur-md rounded-full p-1.5 border border-white/20 shadow-md transition-transform duration-300 group-hover:scale-105 flex items-center justify-center">
+                        <!-- Inline SVG representation of the Way2Wonders LK Logo -->
+                        <img src="Lg.png">
+                    </div>
+                    <div class="flex flex-col">
+                        <span class="text-white font-serif font-bold text-xl tracking-wider leading-tight">Way2Wonders<span class="text-sky-400">LK</span></span>
+                        <span class="text-xs text-slate-300 font-light tracking-widest uppercase">Travel & Tourism</span>
+                    </div>
+                </a>
+
+                <!-- Nav Links Right (Desktop) -->
+                <nav class="hidden md:flex items-center space-x-8" aria-label="Main Navigation">
+                    <a href="index.html" class="text-sky-400 font-semibold text-sm tracking-wide transition-colors duration-200 border-b-2 border-sky-400 pb-1" aria-current="page">Home</a>
+                    <a href="about.html" class="text-white/90 hover:text-sky-300 font-medium text-sm tracking-wide transition-colors duration-200 pb-1">About</a>
+                    <a href="destinations.html" class="text-white/90 hover:text-sky-300 font-medium text-sm tracking-wide transition-colors duration-200 pb-1">Destinations</a>
+                    <a href="contact.html" class="text-white/90 hover:text-sky-300 font-medium text-sm tracking-wide transition-colors duration-200 pb-1">Contact</a>
+                </nav>
+
+                <!-- Mobile Menu Button -->
+                <div class="md:hidden flex items-center">
+                    <button id="mobileMenuBtn" type="button" class="text-white hover:text-sky-400 p-2 rounded-lg focus:outline-none focus:ring-2 focus:ring-sky-400" aria-expanded="false" aria-label="Toggle Navigation Menu">
+                        <i class="fa-solid fa-bars text-2xl"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mobile Drawer Menu -->
+        <div id="mobileMenu" class="hidden md:hidden bg-slate-900/95 backdrop-blur-xl border-b border-slate-800 transition-all duration-300">
+            <div class="px-4 pt-3 pb-6 space-y-3">
+                <a href="index.html" class="block px-3 py-2 rounded-md text-base font-medium text-sky-400 bg-slate-800/60" aria-current="page">Home</a>
+                <a href="about.html" class="block px-3 py-2 rounded-md text-base font-medium text-white hover:text-sky-300 hover:bg-slate-800/40">About</a>
+                <a href="destinations.html" class="block px-3 py-2 rounded-md text-base font-medium text-white hover:text-sky-300 hover:bg-slate-800/40">Destinations</a>
+                <a href="contact.html" class="block px-3 py-2 rounded-md text-base font-medium text-white hover:text-sky-300 hover:bg-slate-800/40">Contact</a>
+                <div class="pt-2">
+                    <a href="contact.html" class="block w-full text-center bg-sky-600 hover:bg-sky-500 text-white font-semibold py-3 rounded-lg shadow">
+                        Inquire Now
+                    </a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <section class="relative min-h-screen flex items-center justify-center overflow-hidden bg-slate-900 pt-20">
+        <!-- Solid High Resolution Background Image with Gradient Overlay -->
+        <div class="absolute inset-0 z-0">
+            <img src="Hero.png" 
+                 alt="Sri Lanka Sigiriya Rock Fortress Landscape" 
+                 class="w-full h-full object-cover object-center transform scale-105 animate-fade-in"
+                 loading="eager"
+                 onerror="this.onerror=null; this.src='https://placehold.co/1920x1080/0f172a/ffffff?text=Sri+Lanka+Way2Wonders';" />
+            <!-- Darkness & Tint Overlay to blend seamlessly with Navbar -->
+            <div class="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-900/60 to-slate-900/70"></div>
+            <div class="absolute inset-0 bg-sky-950/20 mix-blend-overlay"></div>
+        </div>
+
+        <!-- Hero Content Container -->
+        <div class="relative z-10 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center text-white py-16">
+            
+            <!-- Brand Badge -->
+            <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white/10 backdrop-blur-md border border-white/20 text-sky-200 text-xs sm:text-sm font-medium tracking-widest uppercase mb-6 shadow-inner">
+                <i class="fa-solid fa-compass text-sky-400"></i> Way2Wonders LK
+            </div>
+
+            <!-- Welcome Title in Serif Font as requested -->
+            <h1 class="font-serif-title text-4xl sm:text-6xl md:text-7xl font-bold tracking-tight leading-tight text-glow mb-4">
+                Welcome to <span class="text-transparent bg-clip-text bg-gradient-to-r from-sky-200 via-white to-sky-400">Sri Lanka</span>
+            </h1>
+
+            <!-- Requested Motto -->
+            <p class="font-serif-title italic text-xl sm:text-2xl md:text-3xl text-sky-100/90 font-normal max-w-3xl mx-auto mb-10 leading-relaxed text-glow">
+                "A legacy of hospitality. A world of wonders."
+            </p>
+
+            <!-- Quick Action CTA Buttons -->
+            <div class="flex flex-col sm:flex-row items-center justify-center gap-4 sm:gap-6">
+                <a href="#destinations" class="w-full sm:w-auto px-8 py-4 bg-sky-600 hover:bg-sky-500 text-white font-semibold rounded-full shadow-xl shadow-sky-900/40 hover:shadow-sky-500/30 transition-all duration-300 transform hover:-translate-y-1 flex items-center justify-center gap-3">
+                    <span>Explore Destinations</span>
+                    <i class="fa-solid fa-arrow-down text-sm"></i>
+                </a>
+                <a href="about.html" class="w-full sm:w-auto px-8 py-4 bg-white/10 hover:bg-white/20 text-white font-semibold rounded-full border border-white/30 backdrop-blur-md transition-all duration-300 flex items-center justify-center gap-3">
+                    <span>Our Story</span>
+                    <i class="fa-solid fa-circle-info text-sm"></i>
+                </a>
+            </div>
+
+            <!-- Key Feature Quick Badges -->
+            <div class="grid grid-cols-2 md:grid-cols-3 gap-4 max-w-3xl mx-auto mt-16 pt-8 border-t border-white/15 text-left text-xs sm:text-sm text-slate-200">
+                <div class="flex items-center gap-3">
+                    <div class="w-10 h-10 rounded-full bg-sky-500/20 border border-sky-400/30 flex items-center justify-center text-sky-300 shrink-0">
+                        <i class="fa-solid fa-shield-halved"></i>
+                    </div>
+                    <div>
+                        <p class="font-semibold text-white">Trusted Heritage</p>
+                        <p class="text-slate-400 text-xs">Family roots since 1978</p>
+                    </div>
+                </div>
+                <div class="flex items-center gap-3">
+                    <div class="w-10 h-10 rounded-full bg-sky-500/20 border border-sky-400/30 flex items-center justify-center text-sky-300 shrink-0">
+                        <i class="fa-solid fa-map-location-dot"></i>
+                    </div>
+                    <div>
+                        <p class="font-semibold text-white">Custom Itineraries</p>
+                        <p class="text-slate-400 text-xs">Tailor-made experiences</p>
+                    </div>
+                </div>
+                <div class="col-span-2 md:col-span-1 flex items-center justify-center md:justify-start gap-3">
+                    <div class="w-10 h-10 rounded-full bg-sky-500/20 border border-sky-400/30 flex items-center justify-center text-sky-300 shrink-0">
+                        <i class="fa-solid fa-headset"></i>
+                    </div>
+                    <div>
+                        <p class="font-semibold text-white">Kandy Based</p>
+                        <p class="text-slate-400 text-xs">24/7 Island Concierge</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-24 bg-slate-50 text-slate-800 relative">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
+                
+                <!-- Left Image Grid -->
+                <div class="lg:col-span-5 relative">
+                    <div class="relative rounded-2xl overflow-hidden shadow-2xl border-4 border-white">
+                        <img src="https://images.unsplash.com/photo-1546708973-b339540b5162?auto=format&fit=crop&w=1000&q=80" 
+                             alt="Sri Lankan Culture and Scenic Views" 
+                             class="w-full h-[420px] object-cover"
+                             onerror="this.onerror=null; this.src='https://placehold.co/800x1000/0f172a/ffffff?text=Way2Wonders+Hospitality';" />
+                        <div class="absolute inset-0 bg-gradient-to-t from-slate-900/70 via-transparent to-transparent"></div>
+                        <div class="absolute bottom-6 left-6 right-6 text-white">
+                            <span class="text-xs uppercase font-bold tracking-widest text-sky-300">Heart of Hospitality</span>
+                            <p class="font-serif-title text-xl font-medium mt-1">Passing down generations of travel excellence.</p>
+                        </div>
+                    </div>
+
+                    <!-- Floating Badge Card -->
+                    <div class="absolute -bottom-6 -right-4 sm:right-6 bg-white p-5 rounded-2xl shadow-xl border border-slate-100 max-w-[220px] hidden sm:block">
+                        <div class="flex items-center gap-3">
+                            <div class="w-12 h-12 rounded-xl bg-sky-100 text-sky-700 flex items-center justify-center text-xl font-bold font-serif">
+                                1978
+                            </div>
+                            <div>
+                                <p class="text-xs font-semibold text-slate-400 uppercase tracking-wider">Heritage</p>
+                                <p class="text-sm font-bold text-slate-900">45+ Years Roots</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Right Content -->
+                <div class="lg:col-span-7 flex flex-col items-start">
+                    <div class="inline-flex items-center gap-2 px-3.5 py-1 rounded-md bg-sky-100 text-sky-800 text-xs font-bold uppercase tracking-wider mb-4">
+                        <i class="fa-solid fa-hotel"></i> About Way2Wonders LK
+                    </div>
+
+                    <h2 class="font-serif-title text-3xl sm:text-4xl md:text-5xl font-bold text-slate-900 leading-tight mb-6">
+                        A Legacy of Travel. A New Way to Discover Sri Lanka.
+                    </h2>
+
+                    <p class="text-slate-600 text-base sm:text-lg leading-relaxed mb-6">
+                        Every unforgettable journey begins with a dream. Deeply rooted in a rich family passion for tourism that began in 1978 with <strong>Lanka Metropolitan Tours</strong> and evolved through <strong>Sanaa International Tours</strong>, our journey spans generations of dedication and authentic Sri Lankan warmth.
+                    </p>
+
+                    <p class="text-slate-600 text-base leading-relaxed mb-8">
+                        Established with a fresh vision, <strong>Way2Wonders LK</strong> brings together timeless knowledge with a modern, personal touch. From ancient UNESCO kingdoms and wildlife safaris to mist-covered tea hills and tranquil coastal escapes, we craft journeys that speak to your soul.
+                    </p>
+
+                    <!-- Feature Points -->
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 w-full mb-8">
+                        <div class="flex items-start gap-3">
+                            <i class="fa-solid fa-circle-check text-sky-600 mt-1 text-lg"></i>
+                            <div>
+                                <h4 class="font-semibold text-slate-900 text-sm">Personalized Experiences</h4>
+                                <p class="text-xs text-slate-500">Tailored to first-time visitors, families & couples.</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start gap-3">
+                            <i class="fa-solid fa-circle-check text-sky-600 mt-1 text-lg"></i>
+                            <div>
+                                <h4 class="font-semibold text-slate-900 text-sm">Trusted Local Knowledge</h4>
+                                <p class="text-xs text-slate-500">Based in historic Kandy with islandwide reach.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Button linking to full About page -->
+                    <a href="about.html" class="inline-flex items-center gap-3 px-7 py-3.5 bg-slate-900 hover:bg-sky-700 text-white font-semibold text-sm rounded-xl shadow-lg hover:shadow-sky-600/20 transition-all duration-300">
+                        <span>Read Our Full Story</span>
+                        <i class="fa-solid fa-arrow-right text-xs"></i>
+                    </a>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <section id="destinations" class="py-24 bg-white text-slate-900">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            
+            <!-- Section Header -->
+            <div class="flex flex-col md:flex-row md:items-end justify-between mb-16">
+                <div>
+                    <span class="text-xs uppercase font-bold tracking-widest text-sky-600 block mb-2">
+                        <i class="fa-solid fa-location-dot mr-1"></i> Breathtaking Escapes
+                    </span>
+                    <h2 class="font-serif-title text-3xl sm:text-4xl md:text-5xl font-bold text-slate-900">
+                        Explore Sri Lanka's Wonders
+                    </h2>
+                </div>
+                <p class="text-slate-500 max-w-md mt-4 md:mt-0 text-sm sm:text-base">
+                    Discover iconic landscapes, centuries of history, and serene beaches handcrafted by local experts.
+                </p>
+            </div>
+
+            <!-- Destinations Card Grid (4 Cards Total) -->
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+                
+                <!-- Card 1: Sigiriya Ancient Fortress -->
+                <div class="card-container bg-slate-50 rounded-2xl overflow-hidden border border-slate-200/80 shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col">
+                    <div class="relative h-60 overflow-hidden">
+                        <img src="Sigiriya.png" 
+                             alt="Historic places" 
+                             class="card-zoom-img w-full h-full object-cover"
+                             onerror="this.onerror=null; this.src='https://placehold.co/600x400/0f172a/ffffff?text=Sigiriya';" />
+                        <div class="absolute top-3 left-3 bg-slate-900/80 backdrop-blur-md text-white text-[11px] font-semibold px-3 py-1 rounded-full">
+                            Cultural Triangle
+                        </div>
+                    </div>
+                    <div class="p-6 flex-1 flex flex-col justify-between">
+                        <div>
+                            <h3 class="font-serif-title text-xl font-bold text-slate-900 mb-2">Historic places</h3>
+                            <p class="text-slate-600 text-xs sm:text-sm line-clamp-3 leading-relaxed mb-4">
+                                Ancient 5th-century palace's & fortress's towering above lush green forests, renowned for its architecture and engineering marvels.
+                            </p>
+                        </div>
+                        <div class="pt-3 border-t border-slate-200 flex items-center justify-between text-xs text-slate-500 font-medium">
+                            <span><i class="fa-solid fa-clock text-sky-600 mr-1"></i> Day Tour / Package</span>
+                            <a href="destinations.html" class="text-sky-700 hover:text-sky-900 font-bold flex items-center gap-1">
+                                View <i class="fa-solid fa-angle-right"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card 2: Ella & Hill Country -->
+                <div class="card-container bg-slate-50 rounded-2xl overflow-hidden border border-slate-200/80 shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col">
+                    <div class="relative h-60 overflow-hidden">
+                        <img src="Nine Arch.png"
+                             alt="Hill Country" 
+                             class="card-zoom-img w-full h-full object-cover"
+                             onerror="this.onerror=null; this.src='https://placehold.co/600x400/0f172a/ffffff?text=Ella+Hill+Country';" />
+                        <div class="absolute top-3 left-3 bg-slate-900/80 backdrop-blur-md text-white text-[11px] font-semibold px-3 py-1 rounded-full">
+                            Central Highlands
+                        </div>
+                    </div>
+                    <div class="p-6 flex-1 flex flex-col justify-between">
+                        <div>
+                            <h3 class="font-serif-title text-xl font-bold text-slate-900 mb-2">Hill Country</h3>
+                            <p class="text-slate-600 text-xs sm:text-sm line-clamp-3 leading-relaxed mb-4">
+                                Scenic misty train routes, iconic Nine Arch Bridge, cascading waterfalls, and emerald tea plantations.
+                            </p>
+                        </div>
+                        <div class="pt-3 border-t border-slate-200 flex items-center justify-between text-xs text-slate-500 font-medium">
+                            <span><i class="fa-solid fa-mountain text-sky-600 mr-1"></i> Nature & Adventure</span>
+                            <a href="destinations.html" class="text-sky-700 hover:text-sky-900 font-bold flex items-center gap-1">
+                                View <i class="fa-solid fa-angle-right"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card 3: Mirissa & Southern Coast -->
+                <div class="card-container bg-slate-50 rounded-2xl overflow-hidden border border-slate-200/80 shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col">
+                    <div class="relative h-60 overflow-hidden">
+                        <img src="Mirissa.png" 
+                             alt="Tropical Beaches" 
+                             class="card-zoom-img w-full h-full object-cover"
+                             onerror="this.onerror=null; this.src='https://placehold.co/600x400/0f172a/ffffff?text=Mirissa+Beach';" />
+                        <div class="absolute top-3 left-3 bg-slate-900/80 backdrop-blur-md text-white text-[11px] font-semibold px-3 py-1 rounded-full">
+                            Southern Coast
+                        </div>
+                    </div>
+                    <div class="p-6 flex-1 flex flex-col justify-between">
+                        <div>
+                            <h3 class="font-serif-title text-xl font-bold text-slate-900 mb-2">Tropical Beaches</h3>
+                            <p class="text-slate-600 text-xs sm:text-sm line-clamp-3 leading-relaxed mb-4">
+                                Sun-kissed golden beaches, coconut tree hills, marine whale watching safaris, and relaxing tropical sunsets.
+                            </p>
+                        </div>
+                        <div class="pt-3 border-t border-slate-200 flex items-center justify-between text-xs text-slate-500 font-medium">
+                            <span><i class="fa-solid fa-umbrella-beach text-sky-600 mr-1"></i> Beach Escapes</span>
+                            <a href="destinations.html" class="text-sky-700 hover:text-sky-900 font-bold flex items-center gap-1">
+                                View <i class="fa-solid fa-angle-right"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card 4: More Destinations CTA Card (4th Card linking to destinations page) -->
+                <div class="bg-gradient-to-br from-slate-900 via-sky-900 to-slate-950 rounded-2xl p-8 text-white flex flex-col justify-between border border-sky-800 shadow-xl hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-1 relative overflow-hidden group">
+                    <div class="absolute -right-8 -bottom-8 w-40 h-40 bg-sky-500/10 rounded-full blur-2xl group-hover:bg-sky-500/20 transition-all"></div>
+                    
+                    <div>
+                        <div class="w-12 h-12 rounded-xl bg-white/10 backdrop-blur-md border border-white/20 flex items-center justify-center text-sky-300 text-xl mb-6">
+                            <i class="fa-solid fa-compass-drafting"></i>
+                        </div>
+                        <span class="text-xs uppercase font-bold tracking-widest text-sky-300 block mb-2">Uncover More</span>
+                        <h3 class="font-serif-title text-2xl font-bold mb-3">More Destinations</h3>
+                        <p class="text-slate-300 text-xs sm:text-sm leading-relaxed mb-6">
+                            From Yala National Park safaris and ancient Kandy temples to hidden water falls across the island.
+                        </p>
+                    </div>
+
+                    <a href="destinations.html" class="inline-flex items-center justify-center gap-3 w-full py-3.5 px-4 bg-sky-500 hover:bg-sky-400 text-white font-semibold text-sm rounded-xl shadow-lg transition-all duration-300">
+                        <span>Explore All Places</span>
+                        <i class="fa-solid fa-arrow-right text-xs"></i>
+                    </a>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <section class="py-16 bg-slate-900 text-white border-y border-slate-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row items-center justify-between gap-8">
+            <div class="text-center md:text-left">
+                <span class="text-xs font-bold text-sky-400 uppercase tracking-widest">Tailor-Made Tour Packages</span>
+                <h3 class="font-serif-title text-2xl sm:text-3xl font-bold mt-1">Ready to Plan Your Sri Lankan Journey?</h3>
+                <p class="text-slate-400 text-sm mt-1">Speak directly with our local travel specialists in Kandy.</p>
+            </div>
+            <div class="flex items-center gap-4">
+                <a href="contact.html" class="px-7 py-3.5 bg-sky-600 hover:bg-sky-500 text-white font-semibold rounded-xl shadow-lg transition-all text-sm flex items-center gap-2">
+                    <i class="fa-solid fa-envelope"></i>
+                    <span>Contact Us</span>
+                </a>
+                <a href="https://wa.me/94775648203" target="_blank" rel="noopener noreferrer" class="px-6 py-3.5 bg-emerald-600 hover:bg-emerald-500 text-white font-semibold rounded-xl shadow-lg transition-all text-sm flex items-center gap-2">
+                    <i class="fa-brands fa-whatsapp text-lg"></i>
+                    <span>WhatsApp</span>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <footer class="bg-slate-950 text-slate-300 pt-16 pb-12 border-t border-slate-800 mt-auto">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-10 pb-12 border-b border-slate-800">
+                
+                <!-- Col 1: Brand Info -->
+                <div class="lg:col-span-4 flex flex-col items-start">
+                    <a href="index.html" class="flex items-center gap-3 mb-4">
+                        <div class="w-10 h-10 bg-white/10 rounded-full p-1 flex items-center justify-center border border-white/20">
+                            <!-- SVG Logo Footer Badge -->
+                            <img src="Lg.png">
+                        </div>
+                        <span class="text-white font-serif font-bold text-xl tracking-wider">Way2Wonders<span class="text-sky-400">LK</span></span>
+                    </a>
+                    <p class="text-slate-400 text-sm leading-relaxed mb-6 max-w-sm">
+                        A legacy of hospitality. A world of wonders. Bringing together family heritage since 1978 to craft unforgettable journeys across Sri Lanka.
+                    </p>
+                    
+                    <div class="flex items-center gap-2 text-xs text-sky-400 font-medium">
+                        <i class="fa-solid fa-location-dot"></i>
+                        <span>Based in Kandy, Sri Lanka</span>
+                    </div>
+                </div>
+
+                <!-- Col 2: Navigation Links -->
+                <div class="lg:col-span-3">
+                    <h4 class="text-white font-semibold text-sm uppercase tracking-wider mb-4 border-l-2 border-sky-500 pl-2">Quick Navigation</h4>
+                    <ul class="space-y-2.5 text-sm">
+                        <li><a href="index.html" class="hover:text-sky-400 transition-colors flex items-center gap-2"><i class="fa-solid fa-chevron-right text-[10px] text-slate-600"></i> Home</a></li>
+                        <li><a href="about.html" class="hover:text-sky-400 transition-colors flex items-center gap-2"><i class="fa-solid fa-chevron-right text-[10px] text-slate-600"></i> About Us</a></li>
+                        <li><a href="destinations.html" class="hover:text-sky-400 transition-colors flex items-center gap-2"><i class="fa-solid fa-chevron-right text-[10px] text-slate-600"></i> Destinations</a></li>
+                        <li><a href="contact.html" class="hover:text-sky-400 transition-colors flex items-center gap-2"><i class="fa-solid fa-chevron-right text-[10px] text-slate-600"></i> Contact Us</a></li>
+                    </ul>
+                </div>
+
+                <!-- Col 3: Contact & Location Info -->
+                <div class="lg:col-span-3">
+                    <h4 class="text-white font-semibold text-sm uppercase tracking-wider mb-4 border-l-2 border-sky-500 pl-2">Office & Contact</h4>
+                    <ul class="space-y-3 text-sm text-slate-400">
+                        <li class="flex items-start gap-3">
+                            <i class="fa-solid fa-map-pin text-sky-400 mt-1"></i>
+                            <span>Kandy, Central Province, Sri Lanka</span>
+                        </li>
+                        <li class="flex items-center gap-3">
+                            <i class="fa-solid fa-envelope text-sky-400"></i>
+                            <a href="mailto:info@way2wonderslk.com" class="hover:text-white transition-colors">info@way2wonderslk.com</a>
+                        </li>
+                        <li class="flex items-center gap-3">
+                            <i class="fa-solid fa-phone text-sky-400"></i>
+                            <a href="tel:+94812000000" class="hover:text-white transition-colors">+94 (77) 564 8203</a>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Col 4: Social Media Connect -->
+                <div class="lg:col-span-2">
+                    <h4 class="text-white font-semibold text-sm uppercase tracking-wider mb-4 border-l-2 border-sky-500 pl-2">Follow Us</h4>
+                    <p class="text-xs text-slate-400 mb-4">Stay connected with our latest island travel stories:</p>
+                    <div class="flex flex-wrap gap-3">
+                        <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" class="w-10 h-10 rounded-lg bg-slate-800 hover:bg-sky-600 text-white flex items-center justify-center transition-all duration-300 shadow" aria-label="Instagram">
+                            <i class="fa-brands fa-instagram text-lg"></i>
+                        </a>
+                        <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" class="w-10 h-10 rounded-lg bg-slate-800 hover:bg-sky-600 text-white flex items-center justify-center transition-all duration-300 shadow" aria-label="Facebook">
+                            <i class="fa-brands fa-facebook-f text-lg"></i>
+                        </a>
+                        <a href="https://tripadvisor.com" target="_blank" rel="noopener noreferrer" class="w-10 h-10 rounded-lg bg-slate-800 hover:bg-sky-600 text-white flex items-center justify-center transition-all duration-300 shadow" aria-label="TripAdvisor">
+                            <i class="fa-brands fa-tripadvisor text-lg"></i>
+                        </a>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- Bottom Copyright & Security Safeguards -->
+            <div class="pt-8 flex flex-col sm:flex-row items-center justify-between text-xs text-slate-500 gap-4">
+                <p>&copy; <span id="currentYear">2026</span> Way2Wonders LK. All rights reserved.</p>
+                <div class="flex items-center gap-6">
+                    <span class="inline-flex items-center gap-1.5 text-slate-400">
+                        <i class="fa-solid fa-lock text-sky-500 text-[10px]"></i> Secure Verified Site
+                    </span>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            /* 1. Mobile Menu Toggle */
+            const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+            const mobileMenu = document.getElementById('mobileMenu');
+
+            if (mobileMenuBtn && mobileMenu) {
+                mobileMenuBtn.addEventListener('click', function() {
+                    const expanded = mobileMenuBtn.getAttribute('aria-expanded') === 'true';
+                    mobileMenuBtn.setAttribute('aria-expanded', !expanded);
+                    mobileMenu.classList.toggle('hidden');
+                });
+            }
+
+            /* 2. Navbar Blend and Scroll Effect */
+            const nav = document.getElementById('mainNav');
+            window.addEventListener('scroll', function() {
+                if (window.scrollY > 50) {
+                    nav.classList.add('nav-scrolled');
+                } else {
+                    nav.classList.remove('nav-scrolled');
+                }
+            });
+
+            /* 3. Security Feature: Enforce rel="noopener noreferrer" on all external links */
+            const links = document.querySelectorAll('a[target="_blank"]');
+            links.forEach(function(link) {
+                link.setAttribute('rel', 'noopener noreferrer');
+            });
+
+            /* 4. Update Dynamic Copyright Year */
+            const yearElem = document.getElementById('currentYear');
+            if (yearElem) {
+                yearElem.textContent = new Date().getFullYear();
+            }
+        });
+    </script>
+</body>
+</html>
